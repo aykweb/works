@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ayumi Kubo</title>
+  <meta name="description"
+    content="クボアユミのポートフォリオサイト。制作したWebサイトや経歴、対応可能なスキルについてまとめています。お仕事のご相談は、お問い合わせフォームよりお気軽にご連絡ください。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="./images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <meta property="og:description" content="Portfolio">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header__content container-lg">
+      <div class="site-logo">
+        <a href="index.html">AK</a>
+      </div>
+      <nav class="global-nav" aria-label="メインナビゲーション">
+        <ul class="global-nav__list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="ham-btn" type="button" aria-label="メニューを開く" aria-controls="sp-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+
+        <div id="sp-menu">
+          <ul class="sp-menu__list">
+            <li><a href="index.html">Top</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="hero">
+      <div class="hero__content container-lg">
+        <h1>
+          <span class="greeting">Hi, I'm</span>
+          <span class="name">Ayumi Kubo.</span>
+        </h1>
+        <p>Frontend Developer</p>
+      </div>
+    </section>
+    <section id="about">
+      <div class="container-md">
+        <h2 class="sec-title">About</h2>
+        <div class="about__inner">
+          <dl class="about__list">
+            <dt>About Me</dt>
+            <dd>
+              神奈川県出身のWeb制作者です。以前の業務で経験した校正への関心と、コンピュータにとって分かりやすいコードを書くことへの興味が入り口となり、フロントエンドの言語にひと通り取り組みました。今はアクセシビリティの観点から、これまでの実装を見直しつつ、学習を続けています。
+            </dd>
+            <dt>Skills</dt>
+            <dd>HTML/CSS, JavaScript, PHP, WordPress, Figma</dd>
+            <dt>Hobbies</dt>
+            <dd>コーディング、散歩、読書</dd>
+          </dl>
+          <img class="about__photo" src="./images/about.jpeg" alt="製作者が石段の上を歩いている後ろ姿">
+        </div>
+      </div>
+    </section>
+    <section id="works">
+      <div class="container-md">
+        <h2 class="sec-title">Works</h2>
+        <ul class="work__list">
+          <li>
+            <button class="modal-trigger work__card" aria-labelledby="title-moic" data-title="千葉かくう美術館（MOIC）"
+              data-tools="HTML/CSS,JavaScript,Figma" data-img="images/thumb-moic.png"
+              data-overview="架空の文化施設を想定したウェブサイトです。" data-structure="WordPress.comで作成したデモページを基にVS Codeで制作しました。"
+              data-design="公共施設という性質に合わせて文字の読みやすさを重視しました。展覧会のビジュアルが全面に展開するのを想定しシンプルな構成になっています。"
+              data-development="パーツはJavaScriptで共通化して保守性を高めています。支援技術によるアクセシビリティを考慮しています。"
+              data-improvement="開館情報の自動表示など、動的な機能の実装が今後の課題です。" data-link="https://aykweb.github.io/moic/" type="button">
+              <img class="work__thumb" src="images/thumb-moic.png" alt="千葉かくう美術館のウェブサイトのスクリーンショット" width="720"
+                height="540">
+
+              <div class="work__info">
+                <span>Website</span>
+                <h3 id="title-moic">千葉かくう美術館</h3>
+              </div>
+            </button>
+          </li>
+
+          <li>
+            <button class="modal-trigger work__card" aria-labelledby="title-zouge" data-title="にゅうめんや　象牙"
+              data-tools="HTML/CSS,JavaScript,PHP,Figma" data-img="images/thumb-zouge.png"
+              data-overview="架空の飲食店を想定したウェブサイトです。" data-structure="Figmaで作成したデザインカンプを基にVS Codeで制作しました。"
+              data-design="料理の素材の色合いと特徴的なブランドフォントを採用することで、お店のアイデンティティを表現しました。"
+              data-development="PHPとMySQLを連携して予約システムを実装しました。パーツはPHPで共通化して保守性を高めています。"
+              data-improvement="メニューやお知らせなど、情報が増えていった場合の実装を今後の課題としています。"
+              data-link="http://ss323733.stars.ne.jp/index.php" type="button">
+              <div>
+                <img class="work__thumb" src="images/thumb-zouge.png" alt="にゅうめんや　象牙のウェブサイトのスクリーンショット" width="720"
+                  height="540">
+
+                <div class="work__info">
+                  <span>Website</span>
+                  <h3 id="title-zouge">にゅうめんや　象牙</h3>
+                </div>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container-md">
+        <h2 class="sec-title">Contact</h2>
+        <div class="contact__inner">
+          <p>お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
+          <form class="contact__form" action="https://ssgform.com/s/pCxPPgLff5xU" method="POST">
+            <input type="hidden" name="_after" value="https://aykweb.github.io/portfolio/">
+            <div class="contact__field">
+              <label for="contact-name">お名前</label>
+              <input type="text" id="contact-name" name="お名前" required autocomplete="name">
+            </div>
+            <div class="contact__field">
+              <label for="contact-email">メールアドレス</label>
+              <input type="email" id="contact-email" name="メールアドレス" required autocomplete="email">
+            </div>
+            <div class="contact__field">
+              <label for="contact-subject">件名</label>
+              <input type="text" id="contact-subject" name="件名" required>
+            </div>
+            <div class="contact__field">
+              <label for="contact-message">お問い合わせ内容</label>
+              <textarea id="contact-message" name="お問い合わせ内容" rows="6" required></textarea>
+            </div>
+            <button class="submit" type="submit">送信する</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-container" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+    aria-hidden="true" inert>
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <img class="modal__img">
+      <div class="modal__inner">
+        <div class="modal__header">
+          <button id="modal-close" type="button" aria-label="閉じる">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16" />
+              <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16" />
+            </svg></button>
+          <h3 id="modal-title" class="modal__title"></h3>
+          <ul class="modal__tools"></ul>
+        </div>
+        <div class="modal__body">
+          <div class="modal__details">
+          </div>
+
+          <a href="" class="modal__link" target="_blank" rel="noopener noreferrer">
+            <span>サイトを見る</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16" />
+              <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="footer__content container-lg">
+      <span class="footer-logo">AK</span>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <small>&copy;<span id="copyright"></span>Ayumi Kubo</small>
+    </div>
+  </footer>
+</body>
+
+</html>
