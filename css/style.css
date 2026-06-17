@@ -119,8 +119,8 @@ img {
 }
 
 /* brand font */
-#header,
-#hero,
+.site-header,
+.hero,
 h2,
 #about dt,
 .modal__tag,
@@ -134,7 +134,7 @@ h2,
 }
 
 /* MID */
-#hero,
+.hero,
 .global-nav,
 .footer-nav {
   -webkit-text-stroke-width: var(--w-stroke-300);
@@ -150,7 +150,7 @@ h2,
 /* EX-BOLD */
 .site-logo,
 .footer-logo,
-#hero .name {
+.hero .name {
   -webkit-text-stroke-width: var(--w-stroke-700);
 }
 
@@ -183,7 +183,7 @@ a[href*="contact"] {
 /*------------------------------------
 header
 ------------------------------------*/
-#header {
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -405,13 +405,6 @@ main>section {
   }
 }
 
-.sec-title {
-  display: inline-block;
-  font-size: var(--fs-xl);
-  letter-spacing: var(--ls-base);
-  color: var(--c-text);
-}
-
 @keyframes blink-anime {
   0% {
     opacity: 1;
@@ -468,7 +461,7 @@ main>section {
 /*------------------------------------
 hero
 ------------------------------------*/
-#hero {
+.hero {
   display: flex;
   align-items: center;
   height: 100vh;
@@ -488,17 +481,17 @@ hero
   }
 }
 
-#hero .greeting {
+.hero .greeting {
   display: block;
   font-size: clamp(1rem, 8.5vw, 2rem);
 }
 
-#hero .name {
+.hero .name {
   font-size: clamp(2rem, 9.5vw, 3rem);
   text-shadow: var(--txt-shadow);
 }
 
-#hero p {
+.hero p {
   display: block;
   margin-top: 0.25em;
   margin-left: 0.25em;
@@ -1006,7 +999,7 @@ contact
 /*------------------------------------
 footer
 ------------------------------------*/
-#footer {
+.site-footer {
   scroll-snap-align: end;
   padding: var(--space-md) 0.75rem;
   border-top: 1px solid var(--c-sep);
@@ -1054,7 +1047,7 @@ footer
   }
 }
 
-#footer small {
+.site-footer small {
   position: relative;
   padding-inline: .25rem;
   margin-top: var(--space-md);
@@ -1071,7 +1064,7 @@ footer
   }
 }
 
-#footer small span {
+.site-footer small span {
   display: inline-block;
   padding-inline: .5em;
   font-weight: inherit;
