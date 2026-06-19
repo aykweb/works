@@ -36,9 +36,9 @@
     <section id="about">
       <div class="container-md">
         <h2 class="sec-title">About</h2>
-        <div class="about__inner">
+        <div class="about__content">
           <dl class="about__list">
-            <dt>About Me</dt>
+            <dt class="sub-title">About Me</dt>
             <dd>
               神奈川県出身のWeb制作者です。以前の業務で経験した校正への関心と、コンピュータにとって分かりやすいコードを書くことへの興味が入り口となり、フロントエンドの言語にひと通り取り組みました。今はアクセシビリティの観点から、これまでの実装を見直しつつ、学習を続けています。
             </dd>
@@ -54,18 +54,18 @@
     <section id="works">
       <div class="container-md">
         <h2 class="sec-title">Works</h2>
-        <ul class="work__list">
+        <ul class="works__list">
           <li>
-            <button class="modal-trigger work__card" aria-labelledby="title-moic" data-title="千葉かくう美術館（MOIC）"
+            <button class="modal-trigger works__card" aria-labelledby="title-moic" data-title="千葉かくう美術館（MOIC）"
               data-tools="HTML/CSS,JavaScript,Figma" data-img="images/thumb-moic.png"
               data-overview="架空の文化施設を想定したウェブサイトです。" data-structure="WordPress.comで作成したデモページを基にVS Codeで制作しました。"
               data-design="公共施設という性質に合わせて文字の読みやすさを重視しました。展覧会のビジュアルが全面に展開するのを想定しシンプルな構成になっています。"
               data-development="パーツはJavaScriptで共通化して保守性を高めています。支援技術によるアクセシビリティを考慮しています。"
               data-improvement="開館情報の自動表示など、動的な機能の実装が今後の課題です。" data-link="https://aykweb.github.io/moic/" type="button">
-              <img class="work__thumb" src="images/thumb-moic.png" alt="千葉かくう美術館のウェブサイトのスクリーンショット" width="720"
+              <img class="works__thumb" src="images/thumb-moic.png" alt="千葉かくう美術館のウェブサイトのスクリーンショット" width="720"
                 height="540">
 
-              <div class="work__info">
+              <div class="works__info">
                 <span>Website</span>
                 <h3 id="title-moic">千葉かくう美術館</h3>
               </div>
@@ -73,7 +73,7 @@
           </li>
 
           <li>
-            <button class="modal-trigger work__card" aria-labelledby="title-zouge" data-title="にゅうめんや　象牙"
+            <button class="modal-trigger works__card" aria-labelledby="title-zouge" data-title="にゅうめんや　象牙"
               data-tools="HTML/CSS,JavaScript,PHP,Figma" data-img="images/thumb-zouge.png"
               data-overview="架空の飲食店を想定したウェブサイトです。" data-structure="Figmaで作成したデザインカンプを基にVS Codeで制作しました。"
               data-design="料理の素材の色合いと特徴的なブランドフォントを採用することで、お店のアイデンティティを表現しました。"
@@ -81,10 +81,10 @@
               data-improvement="メニューやお知らせなど、情報が増えていった場合の実装を今後の課題としています。"
               data-link="http://ss323733.stars.ne.jp/index.php" type="button">
               <div>
-                <img class="work__thumb" src="images/thumb-zouge.png" alt="にゅうめんや　象牙のウェブサイトのスクリーンショット" width="720"
+                <img class="works__thumb" src="images/thumb-zouge.png" alt="にゅうめんや　象牙のウェブサイトのスクリーンショット" width="720"
                   height="540">
 
-                <div class="work__info">
+                <div class="works__info">
                   <span>Website</span>
                   <h3 id="title-zouge">にゅうめんや　象牙</h3>
                 </div>
@@ -98,7 +98,7 @@
     <section id="contact">
       <div class="container-md">
         <h2 class="sec-title">Contact</h2>
-        <div class="contact__inner">
+        <div class="contact__content">
           <p>お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
           <form class="contact__form" action="https://ssgform.com/s/pCxPPgLff5xU" method="POST">
             <input type="hidden" name="_after" value="https://aykweb.github.io/portfolio/">
