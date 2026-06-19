@@ -68,6 +68,8 @@ img {
   --c-footer-text: #5B6360;
   --c-accent: #3E7A4C;
 
+  --border: 2px solid #D4DBD8;
+
   /* アニメーション */
   --t: 0.3s;
 }
@@ -103,6 +105,11 @@ body {
   background: var(--c-bg);
 }
 
+p,
+dd,
+.contact__field {
+  max-inline-size: 40em;
+}
 
 /*------------------
 brand font
@@ -531,7 +538,6 @@ about
 
 .about__list dd {
   margin-top: var(--space-sm);
-  max-inline-size: 40em;
   font-size: var(--fs-base);
   line-height: 1.75;
   letter-spacing: var(--ls-base);
@@ -589,7 +595,7 @@ works
   position: relative;
   display: block;
   width: 100%;
-  border: var(--c-sep) 2px solid;
+  border: var(--border);
   border-radius: 1px;
   overflow: hidden;
   cursor: pointer;
@@ -746,7 +752,7 @@ modal
   justify-content: space-between;
   padding: var(--space-md) var(--space-md) var(--space-sm);
   background: var(--c-bg);
-  border-bottom: 1px solid var(--c-sep);
+  border-bottom: var(--border);
 }
 
 .modal__title {
@@ -765,7 +771,8 @@ modal
   justify-content: center;
 
   color: var(--c-text-sub);
-  border: 1px solid var(--c-sep);
+  border: var(--border);
+  border-radius: 2px;
   cursor: pointer;
   transition: color var(--t), border-color var(--t);
 }
@@ -808,7 +815,7 @@ modal
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--c-text-sub);
-  border: 1px solid var(--c-sep);
+  border: var(--border);
   border-radius: 1px;
   cursor: default;
 
@@ -837,7 +844,6 @@ modal
 
 
 .modal__details p {
-  max-inline-size: 40em;
   margin-top: var(--space-xs);
   font-size: var(--fs-sm);
   line-height: 1.6;
@@ -955,7 +961,7 @@ contact
   font-size: var(--fs-base);
   letter-spacing: var(--ls-base);
   line-height: 1.6;
-  border-bottom: 1px solid var(--c-sep);
+  border-bottom: var(--border);
   transition: border-color var(--t);
 
   /* iOS16以下 Safari対応 */
@@ -983,7 +989,7 @@ contact
   letter-spacing: var(--ls-wide);
   font-weight: 500;
   color: var(--c-accent);
-  border: 1px var(--c-sep) solid;
+  border: var(--border);
   border-radius: 1px;
   cursor: pointer;
   transition: border-color var(--t), color var(--t);
@@ -1008,7 +1014,7 @@ footer
 ------------------------------------*/
 .site-footer {
   scroll-snap-align: end;
-  border-top: 1px solid var(--c-sep);
+  border-top: var(--border);
   background: var(--c-bg-footer);
 }
 
