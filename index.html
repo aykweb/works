@@ -118,7 +118,7 @@
               <label for="contact-message">お問い合わせ内容</label>
               <textarea id="contact-message" name="お問い合わせ内容" rows="5" required></textarea>
             </div>
-            <button class="submit" type="submit">送信する</button>
+            <button class="submit btn" type="submit">送信する</button>
           </form>
         </div>
       </div>
@@ -147,15 +147,18 @@
           <div class="modal__details">
           </div>
 
-          <a href="" class="modal__link" target="_blank" rel="noopener noreferrer">
+          <a href="" class="modal__link btn" target="_blank" rel="noopener noreferrer">
             <span>サイトを見る</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
               <rect width="256" height="256" fill="none" />
-              <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
+              <polyline points="216 104 215.99 40.01 152 40" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="16" />
-              <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round"
+              <line x1="136" y1="120" x2="216" y2="40" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="16" />
-            </svg></a>
+              <path d="M184,136v72a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8h72" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
