@@ -34,6 +34,21 @@
     const nav = document.querySelector('header nav');
     const hamBtn = document.querySelector('#ham-btn');
 
+
+    const navTargets = Array.from(nav.children).filter(el => el.id !== 'ham-btn' && el.id !== 'sp-menu');
+    const bodyTargets = Array.from(document.body.children).filter(el => el.tagName !== 'HEADER' && el.id !== 'modal-container');
+    const inertTargets = navTargets.concat(bodyTargets);
+
+    const setBackgroundInert = (isInert) => {
+      inertTargets.forEach((el) => {
+        if (isInert) {
+          el.setAttribute('inert', '');
+        } else {
+          el.removeAttribute('inert');
+        }
+      });
+    };
+
     const updateMenuState = (isActive) => {
       nav.classList.toggle('is-active', isActive);
       hamBtn.setAttribute('aria-expanded', isActive);
@@ -43,13 +58,17 @@
 
     hamBtn.addEventListener('click', () => {
       const currentState = nav.classList.contains('is-active');
-      updateMenuState(!currentState);
+      const nextState = !currentState;
+      updateMenuState(nextState);
+      setBackgroundInert(nextState);
     });
 
+    // リンククリック時の処理
     const spMenu = document.querySelector('#sp-menu');
     spMenu.addEventListener('click', (e) => {
       if (e.target.closest('a')) {
-        updateMenuState(false); // 強制的に閉じる
+        updateMenuState(false);
+        setBackgroundInert(false);
       }
     });
   }
