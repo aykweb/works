@@ -31,12 +31,12 @@ img {
   --h-header-content: 3rem;
   --h-works__info: 25%;
 
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 4rem;
+  --sp-xs: 0.25rem;
+  --sp-sm: 0.5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2rem;
+  --sp-2xl: 4rem;
 
   /* ブランドフォント*/
   --ff-brand: 'Bungee Hairline', 'Zen Kaku Gothic New', sans-serif;
@@ -53,22 +53,21 @@ img {
 
   --txt-shadow: 2px 4px 12px rgb(0 0 0 / 0.2);
 
-  --ls-tight: 0.04em;
   --ls-base: 0.06em;
   --ls-wide: 0.1em;
   --ls-wider: 0.14em;
 
+  --fw-bold: 500;
+
   --c-bg: #FDFDFD;
   --c-bg-rgb: 242 247 245;
-  --c-bg-sub: #E8EDEB;
-  --c-bg-footer: #D8DEDD;
-  --c-sep: #D4DBD8;
+  --c-bg-sub: #D8DFDC;
+  --border: 2px solid #D4DBD8;
   --c-text: #1A1F1E;
   --c-text-sub: #4F5A55;
   --c-footer-text: #5B6360;
-  --c-accent: #3E7A4C;
-
-  --border: 2px solid #D4DBD8;
+  --c-accent: #356A41;
+  --c-accent-rgb: 53 106 65;
 
   /* アニメーション */
   --t: 0.3s;
@@ -115,47 +114,43 @@ dd,
 brand font
 ------------------*/
 .site-header,
-.sec-title,
 .hero,
-.global-nav,
-.modal__tag,
-.footer-nav,
-.works__info>span,
+.sec-title,
 .about__list dt,
-.sp-menu__list,
-.site-logo,
+.works__info>span,
+.modal__tag,
 .footer-logo,
-.hero .name {
+.footer-nav {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
 }
 
+
 /* BASE */
-.site-header,
 .sec-title {
   -webkit-text-stroke-width: var(--w-stroke-200);
 }
 
 /* MID */
-.hero,
 .global-nav,
+.hero,
 .modal__tag,
 .footer-nav {
   -webkit-text-stroke-width: var(--w-stroke-300);
 }
 
 /* BOLD */
-h2,
-.works__info>span,
+.site-header a[href*="contact"],
+.sp-menu__list,
 .about__list dt,
-.sp-menu__list {
+.works__info>span {
   -webkit-text-stroke-width: var(--w-stroke-600);
 }
 
 /* BOLDER */
 .site-logo,
-.footer-logo,
-.hero .name {
+.hero .name,
+.footer-logo {
   -webkit-text-stroke-width: var(--w-stroke-700);
 }
 
@@ -166,7 +161,7 @@ common
   position: relative;
   translate: 0 0.4rem;
   display: inline-block;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--sp-xl);
   font-size: var(--fs-xl);
   letter-spacing: var(--ls-base);
   color: var(--c-text);
@@ -174,7 +169,7 @@ common
   transition: opacity 0.5s, translate 0.5s;
 
   @media (max-width: 768px) {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--sp-lg);
     font-size: var(--fs-lg);
   }
 }
@@ -228,13 +223,13 @@ common
 .container-lg {
   max-width: 1080px;
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--sp-md);
 }
 
 .container-md {
   max-width: 800px;
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: var(--sp-xl);
 }
 
 
@@ -329,7 +324,7 @@ header
 
 .global-nav__list {
   display: flex;
-  gap: 0 2rem;
+  gap: 0 var(--sp-xl);
 
   @media (max-width: 768px) {
     display: none;
@@ -408,7 +403,7 @@ nav.is-active #ham-btn span:nth-child(2) {
     z-index: 90;
     display: block;
     place-items: center;
-    background: var(--c-sep);
+    background: var(--c-bg-sub);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -459,10 +454,11 @@ nav.is-active #ham-btn span:nth-child(2) {
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 2rem 0;
+    gap: var(--sp-xl) 0;
     width: max-content;
     margin-inline: auto;
     padding-block: 4rem;
+    
   }
 
   nav.is-active .sp-menu__list li {
@@ -499,7 +495,7 @@ main
 ------------------------------------*/
 main>section {
   scroll-snap-align: end;
-  padding-block: 1rem 4rem;
+  padding-block: var(--sp-md) 4rem;
   padding-inline: clamp(1rem, 5vw, 3rem);
 
   @media (max-width: 768px) {
@@ -510,7 +506,7 @@ main>section {
 
 .modal__details h4,
 .contact__field label {
-  font-weight: 500;
+  font-weight: var(--fw-bold);
   letter-spacing: 0.16em;
   color: var(--c-text-sub);
 }
@@ -529,7 +525,7 @@ hero
   align-items: center;
   height: max-content;
   width: 100%;
-  padding-inline: 1rem;
+  padding-inline: var(--sp-md);
   color: var(--c-accent);
 
   @media (max-width: 768px) {
@@ -562,7 +558,7 @@ about
 }
 
 .about__content {
-  padding-inline: 0.5rem;
+  padding-inline: var(--sp-sm);
 }
 
 .about__list dt {
@@ -572,7 +568,7 @@ about
 }
 
 .about__list dd {
-  margin-top: var(--space-sm);
+  margin-top: var(--sp-sm);
   font-size: var(--fs-base);
   line-height: 1.75;
   letter-spacing: var(--ls-base);
@@ -615,12 +611,12 @@ works
 
 .works__list {
   display: grid;
-  column-gap: var(--space-md);
+  column-gap: var(--sp-md);
   grid-template-columns: 1fr 1fr;
-  padding-inline: 0.5rem;
+  padding-inline: var(--sp-sm);
 
   @media (max-width: 768px) {
-    row-gap: var(--space-lg);
+    row-gap: var(--sp-lg);
     grid-template-columns: 1fr;
     justify-content: center;
   }
@@ -646,9 +642,9 @@ works
   align-items: center;
   justify-content: center;
 
-  color: var(--c-bg-footer);
-  font-size: 1rem;
-  font-weight: 500;
+  color: var(--c-bg);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
   letter-spacing: var(--ls-wide);
   background: rgba(30, 28, 28, 0.6);
   opacity: 0;
@@ -701,11 +697,11 @@ works
   font-family: var(--ff-brand);
   color: var(--c-text-sub);
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--fw-bold);
 }
 
 .works__info>h3 {
-  margin-top: var(--space-sm);
+  margin-top: var(--sp-sm);
   font-size: var(--fs-base);
   font-weight: 400;
 
@@ -727,7 +723,7 @@ modal
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-inline: var(--space-xl);
+  padding-inline: var(--sp-xl);
 }
 
 .modal__overlay {
@@ -783,9 +779,9 @@ modal
   display: flex;
   flex-wrap: wrap;
   align-items: start;
-  gap: 0.5rem 0;
+  gap: var(--sp-sm) 0;
   justify-content: space-between;
-  padding: var(--space-md) var(--space-md) var(--space-sm);
+  padding: var(--sp-md) var(--sp-md) var(--sp-sm);
   background: var(--c-bg);
   border-bottom: var(--border);
 }
@@ -794,7 +790,7 @@ modal
   order: 1;
   flex: 1;
   font-size: var(--fs-md);
-  font-weight: 500;
+  font-weight: var(--fw-bold);
   line-height: 1;
 }
 
@@ -829,7 +825,7 @@ modal
   min-height: 24px;
 }
 
-#modal-close svg>* {
+.modal__header .btn svg>* {
   stroke-width: 18;
 }
 
@@ -837,7 +833,7 @@ modal
   order: 3;
   width: 100%;
   display: inline-flex;
-  gap: 0.5rem;
+  gap: var(--sp-sm);
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
@@ -862,11 +858,11 @@ modal
 
 /* モーダル本文 */
 .modal__body {
-  padding: var(--space-sm) 5% var(--space-xl);
+  padding: var(--sp-sm) 5% var(--sp-xl);
 }
 
 .modal__details {
-  padding-block: var(--space-sm);
+  padding-block: var(--sp-sm);
 }
 
 .modal__details h4 {
@@ -879,7 +875,7 @@ modal
 
 
 .modal__details p {
-  margin-top: var(--space-xs);
+  margin-top: var(--sp-xs);
   font-size: var(--fs-sm);
   line-height: 1.6;
 }
@@ -919,7 +915,7 @@ contact
 }
 
 .contact__content {
-  padding-inline: 0.5rem;
+  padding-inline: var(--sp-sm);
 }
 
 .contact__content>p {
@@ -933,7 +929,7 @@ contact
   gap: 2.25em 0;
   max-width: 480px;
   padding-inline: 1em;
-  margin-top: var(--space-2xl);
+  margin-top: var(--sp-2xl);
 }
 
 .contact__field {
@@ -955,7 +951,7 @@ contact
   font: inherit;
   background: transparent;
   width: 100%;
-  padding: var(--space-xs);
+  padding: var(--sp-xs);
   color: var(--c-text);
   font-size: var(--fs-base);
   letter-spacing: var(--ls-base);
@@ -988,9 +984,9 @@ footer
 ------------------------------------*/
 .site-footer {
   scroll-snap-align: end;
-  padding-block: var(--space-sm);
+  padding-block: var(--sp-sm);
   border-top: var(--border);
-  background: var(--c-bg-footer);
+  background: var(--c-bg-sub);
 }
 
 .footer__content {
@@ -998,7 +994,7 @@ footer
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-inline: 1rem;
+  padding-inline: var(--sp-md);
 }
 
 .footer-logo {
@@ -1036,20 +1032,19 @@ footer
 
 .site-footer small {
   position: relative;
-  padding-inline: .25rem;
-  margin-top: var(--space-xl);
+  padding-inline: var(--sp-xs);
+  margin-top: var(--sp-xl);
   width: 100%;
-
   text-align: start;
   color: var(--c-footer-text);
-  font-size: .75rem;
-  letter-spacing: var(--ls-tight);
-  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  font-weight: var(--fw-bold);
 }
 
 .site-footer small span {
   display: inline-block;
-  padding-inline: .5em;
+  padding-inline: 0.5em;
   font-weight: inherit;
 
 }
