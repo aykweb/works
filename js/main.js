@@ -113,6 +113,21 @@
 
       const modalLink = document.querySelector('.modal__link');
 
+      // タブフォーカス
+      // body直下のmodal以外を背景として扱う
+      const backgroundEls = Array.from(document.body.children)
+        .filter((el) => el !== modal);
+
+      const setBackgroundInert = (isInert) => {
+        backgroundEls.forEach((el) => {
+          if (isInert) {
+            el.setAttribute('inert', '');
+          } else {
+            el.removeAttribute('inert');
+          }
+        });
+      };
+
       // 開く処理
       modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', () => {
@@ -143,6 +158,7 @@
           modal.classList.add('is-active');
           modal.removeAttribute('aria-hidden');
           modal.removeAttribute('inert');
+          setBackgroundInert(true);
           modalCloseBtn.focus();
         });
       });
@@ -157,6 +173,7 @@
 
         // 要素をフォーカス不可にする
         modal.setAttribute('inert', '');
+        setBackgroundInert(false);
 
         if (lastFocusedElement) {
 
