@@ -585,12 +585,13 @@ about
 
 .about__photo {
   display: block;
-  width: 140px;
-  height: 140px;
   transform: rotate(-3deg);
+  width: 10vw;
+  min-width: 140px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: 24% 20%;
-  margin-top: 2.25em;
+  margin-top: var(--sp-xl);
   border-radius: 50%;
   box-shadow: 2px 4px 12px rgb(0 0 0 / 0.12);
   opacity: 0;
