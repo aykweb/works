@@ -61,13 +61,18 @@ img {
 
   --c-bg: #FDFDFD;
   --c-bg-rgb: 242 247 245;
-  --c-bg-sub: #D8DFDC;
+  --c-bg-sub: #d8dfdc;
   --border: 2px solid #D4DBD8;
   --c-text: #1A1F1E;
   --c-text-sub: #4F5A55;
   --c-footer-text: #5B6360;
   --c-accent: #356A41;
   --c-accent-rgb: 53 106 65;
+
+  --grid-line:
+    linear-gradient(to right, var(--c-bg-sub) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--c-bg-sub) 1px, transparent 1px);
+  --grid-size: 36px 36px;
 
   /* アニメーション */
   --t: 0.3s;
@@ -267,6 +272,13 @@ a {
   opacity: 1;
 }
 
+.grid-band {
+  height: 5rem;
+  background-image:var(--grid-line);
+  background-size: var(--grid-size);
+  background-position: 0 100%;
+}
+
 /*------------------------------------
 header
 ------------------------------------*/
@@ -279,8 +291,8 @@ header
   height: var(--h-header);
   border-bottom: none;
   background: linear-gradient(to bottom,
-      rgb(var(--c-bg-rgb) / 0) 100%);
       rgb(var(--c-bg-rgb) / 0.9) 0%,
+      rgb(var(--c-bg-rgb)/ 0) 80%);
 }
 
 .header__content {
@@ -325,6 +337,30 @@ header
 .global-nav__list a:hover {
   color: var(--c-accent);
   opacity: 1;
+}
+
+.global-nav a.is-current {
+  color: var(--c-accent);
+}
+
+.global-nav__list a.is-current::before,
+.global-nav__list a.is-current::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  background: currentColor;
+  translate: -50% 50%;
+}
+
+.global-nav__list a.is-current::before {
+  width: 12px;
+  height: 1.6px;
+}
+
+.global-nav__list a.is-current::after {
+  width: 1.6px;
+  height: 12px;
 }
 
 /*------------------
@@ -413,6 +449,9 @@ nav.is-active #ham-btn span:nth-child(2) {
   }
 
   .sp-menu__list a[href*="contact"] {
+    color: var(--c-accent);
+  }
+
   /* オーバーレイ中 */
   body.menu-open {
     /* スクロール制御 */
@@ -440,7 +479,6 @@ nav.is-active #ham-btn span:nth-child(2) {
     width: max-content;
     margin-inline: auto;
     padding-block: 4rem;
-    
   }
 
   nav.is-active .sp-menu__list li {
@@ -485,7 +523,6 @@ main>section {
   }
 }
 
-
 .modal__details h4,
 .contact__field label {
   font-weight: var(--fw-bold);
@@ -500,6 +537,8 @@ hero
   display: flex;
   align-items: center;
   height: 100vh;
+  background-image:var(--grid-line);
+  background-size: var(--grid-size);
 }
 
 .hero__content {
@@ -952,6 +991,7 @@ contact
 /*------------------------------------
 footer
 ------------------------------------*/
+
 .site-footer {
   scroll-snap-align: end;
   padding-block: var(--sp-sm);
