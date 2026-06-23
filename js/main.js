@@ -1,6 +1,8 @@
 'use strict';
 {
-  /* ========================================== */
+  /* =====================
+ヘッダーフッター読込と初期化
+===================== */
   function loadHTML(selector, url) {
     const target = document.querySelector(selector);
     if (!target) return Promise.resolve();
@@ -30,6 +32,9 @@
   });
   /* ========================================== */
 
+  /* =====================
+ハンバーガーメニュー
+===================== */
   function initHamBtn() {
     const nav = document.querySelector('header nav');
     const hamBtn = document.querySelector('#ham-btn');
@@ -73,6 +78,9 @@
     });
   }
 
+  /* =====================
+   フェード表示
+   ===================== */
   function initScrollAnime() {
     const h2s = document.querySelectorAll('h2, .about__photo');
     const obs = new IntersectionObserver((entries) => {
@@ -87,6 +95,9 @@
     h2s.forEach(h2 => obs.observe(h2));
   }
 
+  /* =====================
+ モーダル処理
+ ===================== */
   function initModal() {
     // モーダルを開く直前にフォーカスされてた要素
     let lastFocusedElement;
@@ -100,7 +111,6 @@
       const modalImg = document.querySelector('.modal__img');
       const modalTitle = document.querySelector('.modal__title');
       const modalTools = document.querySelector('.modal__tools');
-
       const modalDetails = document.querySelector('.modal__details');
 
       const detailItems = [
@@ -187,11 +197,10 @@
     }
   }
 
-
-
-
+  /* =====================
+コピーライト西暦表示
+===================== */
   function initCopy() {
-    // コピーライト西暦
     const copyrightEl = document.querySelector('#copyright');
     if (copyrightEl) {
       copyrightEl.textContent = new Date().getFullYear();
