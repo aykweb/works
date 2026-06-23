@@ -1,9 +1,9 @@
-# portfolio - ポートフォリオサイト
+# works
 
 自身の制作物やスキルを紹介するためのポートフォリオサイトです。
 
 ## URL
-https://aykweb.github.io/portfolio/
+https://aykweb.github.io/works/
 
 ## 制作年
 2026年
@@ -14,24 +14,27 @@ https://aykweb.github.io/portfolio/
 - **Figma**
 
 ## 制作環境
-- **Local Server** (Live Server)
+- **MAMP**
 - **macOS**
 - **VS Code**
 - **GitHub** : 履歴管理
 
 ## 制作のポイント
-- **問い合わせフォームの実装**  
-SSGformを導入し、データの送受信を実現。
- 
 - **モーダルウインドウでの作品紹介**  
 データが増えた際の管理のしやすさを考慮し、カスタムデータ属性を使用。
 
+- **JavaScriptによるパーツ共通化**  
+Fetch APIによりヘッダー・フッターを共通化し、保守性を向上。
+
+- **問い合わせフォームの実装**  
+SSGformを導入し、データの送受信を実現。
+
 - **保守性の高いCSS設計**  
-カラー、余白、フォント等にCSS変数を活用し、一括管理を実現。
+カラー、余白、フォントにCSS変数を活用し、一括管理を実現。
 
 
 ## 制作期間
-約1ヶ月半
+約2ヶ月
 
 ## 著者
 Ayumi Kubo
