@@ -140,7 +140,6 @@ brand font
 }
 
 /* BOLD */
-.site-header a[href*="contact"],
 .sp-menu__list,
 .about__list dt,
 .works__info>span {
@@ -280,8 +279,8 @@ header
   height: var(--h-header);
   border-bottom: none;
   background: linear-gradient(to bottom,
-      rgb(var(--c-bg-rgb) / 0.85) 0%,
       rgb(var(--c-bg-rgb) / 0) 100%);
+      rgb(var(--c-bg-rgb) / 0.9) 0%,
 }
 
 .header__content {
@@ -314,15 +313,18 @@ header
 }
 
 .global-nav__list a {
+  position: relative;
   display: flex;
   align-items: center;
   min-height: 44px;
   font-size: var(--fs-md);
   letter-spacing: var(--ls-base);
+  transition: color 1.5s;
 }
 
-.site-header a[href*="contact"] {
+.global-nav__list a:hover {
   color: var(--c-accent);
+  opacity: 1;
 }
 
 /*------------------
@@ -410,6 +412,7 @@ nav.is-active #ham-btn span:nth-child(2) {
     letter-spacing: var(--ls-wide);
   }
 
+  .sp-menu__list a[href*="contact"] {
   /* オーバーレイ中 */
   body.menu-open {
     /* スクロール制御 */

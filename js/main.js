@@ -22,6 +22,7 @@
     initScrollAnime();
     initModal();
     initCopy();
+    initActiveNav();
   }
   Promise.all([
     loadHTML('#js-header', '/works/parts/header.html'),
@@ -31,6 +32,32 @@
     console.error(err);
   });
   /* ========================================== */
+
+function initActiveNav() {
+  const sections = document.querySelectorAll('main section[id], .hero');
+  const navLinks = document.querySelectorAll('.global-nav__list a');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id; // heroの場合は空文字になる
+
+        navLinks.forEach((link) => {
+          if (!id) {
+            link.classList.remove('is-current');
+          } else {
+            link.classList.toggle('is-current', link.getAttribute('href').endsWith(`#${id}`));
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '-50% 0px -50% 0px'
+  });
+
+  sections.forEach((section) => obs.observe(section));
+}
+
 
   /* =====================
 ハンバーガーメニュー
