@@ -165,7 +165,7 @@ common
   position: relative;
   translate: 0 0.4rem;
   display: inline-block;
-  margin-bottom: var(--sp-xl);
+  margin-bottom: 1.75rem;
   font-size: var(--fs-xl);
   letter-spacing: var(--ls-base);
   color: var(--c-text);
@@ -173,7 +173,6 @@ common
   transition: opacity 0.5s, translate 0.5s;
 
   @media (max-width: 768px) {
-    margin-bottom: var(--sp-lg);
     font-size: var(--fs-lg);
   }
 }
@@ -574,7 +573,7 @@ hero
 about
 ------------------------------------*/
 #about {
-  min-height: 80vh;
+  min-height: 70vh;
 }
 
 .about__content {
@@ -611,11 +610,15 @@ about
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: 24% 20%;
-  margin-top: var(--sp-xl);
+  margin-top: 2.25rem;
   border-radius: 50%;
   box-shadow: 2px 4px 12px rgb(0 0 0 / 0.12);
   opacity: 0;
   transition: opacity 0.5s, transform 0.5s;
+
+  @media (max-width: 768px) {
+    margin-inline: auto;
+  }
 }
 
 .about__photo.is-visible {
@@ -675,6 +678,8 @@ works
   justify-content: center;
 
   color: var(--c-bg);
+
+  -webkit-text-stroke: 0.1px var(--c-text-sub);
   font-size: var(--fs-base);
   font-weight: var(--fw-500);
   letter-spacing: var(--ls-wide);
@@ -740,6 +745,10 @@ works
   /* iOS Safari対応
   buttonの既定色がUA側で上書きされて継承されることがあるため */
   color: var(--c-text);
+
+  @media (max-width: 540px) {
+    margin-top: var(--sp-xs);
+  }
 }
 
 /*------------------
