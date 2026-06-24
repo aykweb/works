@@ -57,7 +57,7 @@ img {
   --ls-wide: 0.1em;
   --ls-wider: 0.14em;
 
-  --fw-bold: 500;
+  --fw-500: 500;
 
   --c-bg: #FDFDFD;
   --c-bg-rgb: 242 247 245;
@@ -256,7 +256,7 @@ a {
   color: var(--c-accent);
   font-size: var(--fs-base);
   letter-spacing: var(--ls-wide);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
   border: var(--border);
   border-radius: 1px;
   line-height: 1;
@@ -274,7 +274,7 @@ a {
 
 .grid-band {
   height: 5rem;
-  background-image:var(--grid-line);
+  background-image: var(--grid-line);
   background-size: var(--grid-size);
   background-position: 0 100%;
 }
@@ -331,7 +331,7 @@ header
   min-height: 44px;
   font-size: var(--fs-md);
   letter-spacing: var(--ls-base);
-  transition: color 1.5s;
+  transition: color var(--t);
 }
 
 .global-nav__list a:hover {
@@ -509,7 +509,6 @@ nav.is-active #ham-btn span:nth-child(2) {
   }
 }
 
-
 /*------------------------------------
 main
 ------------------------------------*/
@@ -525,7 +524,7 @@ main>section {
 
 .modal__details h4,
 .contact__field label {
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
   letter-spacing: 0.16em;
   color: var(--c-text-sub);
 }
@@ -537,7 +536,7 @@ hero
   display: flex;
   align-items: center;
   height: 100vh;
-  background-image:var(--grid-line);
+  background-image: var(--grid-line);
   background-size: var(--grid-size);
 }
 
@@ -677,7 +676,7 @@ works
 
   color: var(--c-bg);
   font-size: var(--fs-base);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
   letter-spacing: var(--ls-wide);
   background: rgba(30, 28, 28, 0.6);
   opacity: 0;
@@ -730,7 +729,7 @@ works
   font-family: var(--ff-brand);
   color: var(--c-text-sub);
   font-size: var(--fs-sm);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
 }
 
 .works__info>h3 {
@@ -738,7 +737,8 @@ works
   font-size: var(--fs-base);
   font-weight: 400;
 
-  /* iOS16以下 Safari対応 */
+  /* iOS Safari対応
+  buttonの既定色がUA側で上書きされて継承されることがあるため */
   color: var(--c-text);
 }
 
@@ -823,7 +823,7 @@ modal
   order: 1;
   flex: 1;
   font-size: var(--fs-md);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
   line-height: 1;
 }
 
@@ -975,11 +975,10 @@ contact
   color: var(--c-text);
   font-size: var(--fs-base);
   letter-spacing: var(--ls-base);
-  line-height: 1.6;
   border-bottom: var(--border);
   transition: border-color var(--t);
 
-  /* iOS16以下 Safari対応 */
+  /* iOS Safari対応 */
   font-size: 16px;
 }
 
@@ -1052,7 +1051,7 @@ footer
   color: var(--c-footer-text);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-500);
 }
 
 .site-footer small span {
