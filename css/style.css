@@ -145,6 +145,7 @@ brand font
 }
 
 /* BOLD */
+.global-nav a.is-current,
 .sp-menu__list,
 .about__list dt,
 .works__info>span {
@@ -330,11 +331,10 @@ header
   min-height: 44px;
   font-size: var(--fs-md);
   letter-spacing: var(--ls-base);
-  transition: color var(--t);
 }
 
 .global-nav__list a:hover {
-  color: var(--c-accent);
+  /* 共通設定から除外 */
   opacity: 1;
 }
 
@@ -348,8 +348,8 @@ header
   position: absolute;
   bottom: -4px;
   left: 50%;
-  background: currentColor;
   translate: -50% 50%;
+  background: currentColor;
 }
 
 .global-nav__list a.is-current::before {
