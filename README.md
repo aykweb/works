@@ -17,7 +17,7 @@ https://aykweb.github.io/works/
 - **MAMP**
 - **macOS**
 - **VS Code**
-- **GitHub** : 履歴管理
+- **GitHub** : 履歴管理, GitHub Pagesでのサイト公開
 
 ## 制作のポイント
 - **モーダルウインドウでの作品紹介**  
