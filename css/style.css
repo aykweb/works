@@ -781,7 +781,7 @@ modal
   display: flex;
   flex-direction: column;
   max-width: 580px;
-  max-height: 90vh;
+  max-height: 94vh;
   width: 100%;
   background: var(--c-bg);
   border-radius: 1px;
@@ -807,7 +807,7 @@ modal
 
 .modal__img {
   display: block;
-  max-height: 50vh;
+  max-height: 48vh;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
