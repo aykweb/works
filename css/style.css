@@ -9,6 +9,13 @@
   list-style: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -40,10 +47,6 @@ img {
 
   /* ブランドフォント*/
   --ff-brand: 'Bungee Hairline', 'Zen Kaku Gothic New', sans-serif;
-  --w-stroke-200: 0.8px;
-  --w-stroke-300: 1.2px;
-  --w-stroke-600: 1.6px;
-  --w-stroke-700: 2.1px;
 
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
@@ -51,7 +54,7 @@ img {
   --fs-lg: 1.75rem;
   --fs-xl: 2.25rem;
 
-  --txt-shadow: 2px 4px 12px rgb(0 0 0 / 0.2);
+  --txt-shadow: 2px 4px 8px rgb(0 0 0 / 0.2);
 
   --ls-base: 0.06em;
   --ls-wide: 0.1em;
@@ -131,32 +134,37 @@ brand font
 }
 
 
-/* BASE */
-.sec-title {
-  -webkit-text-stroke-width: var(--w-stroke-200);
-}
-
-/* MID */
+/* thin */
 .global-nav,
-.hero,
+.hero p,
 .modal__tag,
 .footer-nav {
-  -webkit-text-stroke-width: var(--w-stroke-300);
+  -webkit-text-stroke-width: 1.2px;
 }
 
-/* BOLD */
+/* medium */
 .global-nav a.is-current,
 .sp-menu__list,
 .about__list dt,
 .works__info>span {
-  -webkit-text-stroke-width: var(--w-stroke-600);
+  -webkit-text-stroke-width: 1.6px;
 }
 
-/* BOLDER */
+/* bold */
+.sec-title,
+.hero .greeting {
+  -webkit-text-stroke-width: 2.1px;
+}
+
+/* extra-bold */
 .site-logo,
-.hero .name,
 .footer-logo {
-  -webkit-text-stroke-width: var(--w-stroke-700);
+  -webkit-text-stroke-width: 2.3px;
+}
+
+/* black */
+.hero .name {
+  -webkit-text-stroke-width: 3.6px;
 }
 
 /*------------------
@@ -978,7 +986,11 @@ contact
   outline: none;
   resize: none;
   font: inherit;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
   background: transparent;
+
   width: 100%;
   padding: var(--sp-xs);
   color: var(--c-text);
