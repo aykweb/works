@@ -85,9 +85,12 @@ img {
 html {
   font-size: 100%;
   scrollbar-gutter: stable;
-  scroll-behavior: smooth;
   scroll-padding-top: 3rem;
   scroll-snap-type: y proximity;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 
   @media (max-width: 768px) {
     scroll-snap-type: none;
