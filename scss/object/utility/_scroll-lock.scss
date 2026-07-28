@@ -1,0 +1,8 @@
+.u-scroll-lock {
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    width: 100%;
+  }
+}
