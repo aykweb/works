@@ -1,0 +1,23 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+  color: var(--c-accent);
+  font-size: var(--fs-base);
+  letter-spacing: var(--ls-wide);
+  font-weight: var(--fw-500);
+  border: var(--border);
+  border-radius: 1px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgb(var(--c-accent-rgb) / 0.75);
+    background: rgb(var(--c-bg-rgb) / 0.5);
+    opacity: 1;
+  }
+}

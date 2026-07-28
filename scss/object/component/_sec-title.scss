@@ -1,0 +1,58 @@
+.sec-title {
+  position: relative;
+  translate: 0 0.4rem;
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  font-size: var(--fs-xl);
+  letter-spacing: var(--ls-base);
+  color: var(--c-text);
+  opacity: 0;
+  transition: opacity 0.5s, translate 0.5s;
+
+  @media (max-width: 768px) {
+    font-size: var(--fs-lg);
+  }
+
+  &.is-visible {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0.55em;
+    height: 0.1rem;
+    margin-left: 0.15em;
+    vertical-align: baseline;
+    background: currentColor;
+  }
+
+  &.is-visible::after {
+    animation: blink-anime 1.4s 0.3s step-end forwards;
+  }
+}
+
+
+
+@keyframes blink-anime {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
