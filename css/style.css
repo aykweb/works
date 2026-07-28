@@ -124,30 +124,30 @@ dd,
 /*------------------
 brand font
 ------------------*/
-.site-header,
+.header,
 .hero,
 .sec-title,
 .about__list dt,
 .works__info>span,
 .modal__tag,
-.footer-logo,
-.footer-nav {
+.footer__logo,
+.footer__nav {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
 }
 
 
 /* thin */
-.global-nav,
-.hero p,
+.header__nav,
+.hero__text,
 .modal__tag,
-.footer-nav {
+.footer__nav {
   -webkit-text-stroke-width: 1.2px;
 }
 
 /* medium */
-.global-nav a.is-current,
-.sp-menu__list,
+.header__nav-link.is-current,
+.header__panel-list,
 .about__list dt,
 .works__info>span {
   -webkit-text-stroke-width: 1.6px;
@@ -155,18 +155,18 @@ brand font
 
 /* bold */
 .sec-title,
-.hero .greeting {
+.hero__greeting {
   -webkit-text-stroke-width: 2.1px;
 }
 
 /* extra-bold */
-.site-logo,
-.footer-logo {
+.header__logo,
+.footer__logo {
   -webkit-text-stroke-width: 2.3px;
 }
 
 /* black */
-.hero .name {
+.hero__name {
   -webkit-text-stroke-width: 3.6px;
 }
 
@@ -230,18 +230,18 @@ common
   animation: blink-anime 1.4s 0.3s step-end forwards;
 }
 
-.modal-open {
+.u-scroll-lock {
   overflow: hidden;
 }
 
 
-.container-lg {
+.u-container-lg {
   max-width: 1080px;
   margin-inline: auto;
   padding-inline: var(--sp-md);
 }
 
-.container-md {
+.u-container-md {
   max-width: 800px;
   margin-inline: auto;
   padding-inline: var(--sp-xl);
@@ -293,7 +293,7 @@ a {
 /*------------------------------------
 header
 ------------------------------------*/
-.site-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -312,21 +312,21 @@ header
   justify-content: space-between;
 }
 
-.site-logo a {
+.header__logo-link {
   display: block;
   font-size: clamp(2.25rem, 5vw, var(--h-header-content));
   letter-spacing: var(--ls-wider);
   color: var(--c-text);
 }
 
-.global-nav {
+.header__nav {
   position: relative;
   display: flex;
   align-items: center;
   height: var(--h-header);
 }
 
-.global-nav__list {
+.header__nav-list {
   display: flex;
   gap: 0 var(--sp-xl);
 
@@ -335,7 +335,7 @@ header
   }
 }
 
-.global-nav__list a {
+.header__nav-link {
   position: relative;
   display: flex;
   align-items: center;
@@ -344,17 +344,17 @@ header
   letter-spacing: var(--ls-base);
 }
 
-.global-nav__list a:hover {
+.header__nav-link:hover {
   /* 共通設定から除外 */
   opacity: 1;
 }
 
-.global-nav a.is-current {
+.header__nav-link.is-current {
   color: var(--c-accent);
 }
 
-.global-nav__list a.is-current::before,
-.global-nav__list a.is-current::after {
+.header__nav-link.is-current::before,
+.header__nav-link.is-current::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -363,25 +363,25 @@ header
   background: currentColor;
 }
 
-.global-nav__list a.is-current::before {
+.header__nav-link.is-current::before {
   width: 12px;
   height: 1.6px;
 }
 
-.global-nav__list a.is-current::after {
+.header__nav-link.is-current::after {
   width: 1.6px;
   height: 12px;
 }
 
 /*------------------
-sp-menu
+js-panel
 ------------------*/
-#ham-btn {
+.header__toggle-btn {
   display: none;
 }
 
 @media (max-width: 768px) {
-  #ham-btn {
+  .header__toggle-btn {
     z-index: 100;
     position: absolute;
     top: calc((var(--h-header) - var(--h-header-content)) / 2);
@@ -392,7 +392,7 @@ sp-menu
     cursor: pointer;
   }
 
-  #ham-btn span {
+  .header__toggle-btn span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -405,26 +405,26 @@ sp-menu
     transition: rotate 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  #ham-btn span:nth-child(2) {
+  .header__toggle-btn span:nth-child(2) {
     rotate: 90deg;
   }
 }
 
-nav.is-active #ham-btn span:nth-child(1) {
+nav.is-active .header__toggle-btn span:nth-child(1) {
   rotate: 45deg;
 }
 
-nav.is-active #ham-btn span:nth-child(2) {
+nav.is-active .header__toggle-btn span:nth-child(2) {
   rotate: 135deg;
 }
 
-#sp-menu {
+.header__panel {
   display: none;
 }
 
 /* 待機中 */
 @media (max-width: 768px) {
-  #sp-menu {
+  .header__panel {
     position: fixed;
     inset: 0;
     z-index: 90;
@@ -440,7 +440,7 @@ nav.is-active #ham-btn span:nth-child(2) {
       visibility 0s 0.4s;
   }
 
-  .sp-menu__list li {
+  .header__panel-list li {
     transform: translateY(4rem);
     opacity: 0;
     visibility: hidden;
@@ -451,26 +451,26 @@ nav.is-active #ham-btn span:nth-child(2) {
   }
 
 
-  .sp-menu__list a {
+  .header__panel-link {
     display: block;
     min-height: 24px;
     font-size: var(--fs-lg);
     letter-spacing: var(--ls-wide);
   }
 
-  .sp-menu__list a[href*="contact"] {
+  .header__panel-list a[href*="contact"] {
     color: var(--c-accent);
   }
 
   /* オーバーレイ中 */
-  body.menu-open {
+  .u-scroll-lock {
     /* スクロール制御 */
     overflow: hidden;
     position: fixed;
     width: 100%;
   }
 
-  nav.is-active #sp-menu {
+  nav.is-active .header__panel {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -480,7 +480,7 @@ nav.is-active #ham-btn span:nth-child(2) {
       visibility 0s 0s;
   }
 
-  nav.is-active .sp-menu__list {
+  nav.is-active .header__panel-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -491,7 +491,7 @@ nav.is-active #ham-btn span:nth-child(2) {
     padding-block: 4rem;
   }
 
-  nav.is-active .sp-menu__list li {
+  nav.is-active .header__panel-list li {
     transform: translateY(0);
     visibility: visible;
     opacity: 1;
@@ -502,19 +502,19 @@ nav.is-active #ham-btn span:nth-child(2) {
       transform 0.4s;
   }
 
-  nav.is-active .sp-menu__list li:nth-child(1) {
+  nav.is-active .header__panel-list li:nth-child(1) {
     transition-delay: 0.1s;
   }
 
-  nav.is-active .sp-menu__list li:nth-child(2) {
+  nav.is-active .header__panel-list li:nth-child(2) {
     transition-delay: 0.2s;
   }
 
-  nav.is-active .sp-menu__list li:nth-child(3) {
+  nav.is-active .header__panel-list li:nth-child(3) {
     transition-delay: 0.3s;
   }
 
-  nav.is-active .sp-menu__list li:nth-child(4) {
+  nav.is-active .header__panel-list li:nth-child(4) {
     transition-delay: 0.4s;
   }
 }
@@ -563,17 +563,17 @@ hero
   }
 }
 
-.hero .greeting {
+.hero__greeting {
   display: block;
   font-size: clamp(1rem, 8.5vw, 2rem);
 }
 
-.hero .name {
+.hero__name {
   font-size: clamp(2rem, 9.5vw, 3rem);
   text-shadow: var(--txt-shadow);
 }
 
-.hero p {
+.hero__text {
   display: block;
   margin-top: 0.25em;
   margin-left: 0.25em;
@@ -647,7 +647,7 @@ works
 }
 
 
-#works .container-md {
+#works .u-container-md {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -668,7 +668,7 @@ works
   }
 }
 
-.modal-trigger.works__card {
+.works__card--trigger.works__card {
   position: relative;
   display: block;
   width: 100%;
@@ -678,7 +678,7 @@ works
   cursor: pointer;
 }
 
-.modal-trigger.works__card::after {
+.works__card--trigger.works__card::after {
   content: '詳細を見る';
   position: absolute;
   top: 0;
@@ -703,14 +703,14 @@ works
 @media (hover: hover) {
 
   /* マウスホバー, Tab */
-  .modal-trigger.works__card:hover::after,
-  .modal-trigger.works__card:focus-visible::after {
+  .works__card--trigger.works__card:hover::after,
+  .works__card--trigger.works__card:focus-visible::after {
     opacity: 1;
   }
 }
 
 @media (hover: none) {
-  .modal-trigger.works__card:after {
+  .works__card--trigger.works__card:after {
     opacity: 1;
   }
 }
@@ -1026,7 +1026,7 @@ contact
 footer
 ------------------------------------*/
 
-.site-footer {
+.footer {
   scroll-snap-align: end;
   padding-block: var(--sp-sm);
   border-top: var(--border);
@@ -1041,14 +1041,14 @@ footer
   padding-inline: var(--sp-md);
 }
 
-.footer-logo {
+.footer__logo {
   display: block;
   font-size: var(--fs-lg);
   letter-spacing: var(--ls-wider);
   color: var(--c-accent);
 }
 
-.footer-nav ul {
+.footer__nav-list {
   display: flex;
   gap: 0 1.5em;
 
@@ -1057,7 +1057,7 @@ footer
   }
 }
 
-.footer-nav a {
+.footer__nav-link {
   display: flex;
   align-items: center;
   min-height: 24px;
@@ -1066,7 +1066,7 @@ footer
   color: var(--c-footer-text);
 }
 
-.site-footer small {
+.footer__copy {
   position: relative;
   padding-inline: var(--sp-xs);
   margin-top: var(--sp-xl);
@@ -1078,7 +1078,7 @@ footer
   font-weight: var(--fw-500);
 }
 
-.site-footer small span {
+.footer__copy span {
   display: inline-block;
   padding-inline: 0.5em;
   font-weight: inherit;
@@ -1089,13 +1089,13 @@ footer
 thanks-page
 ------------------------------------*/
 
-body.is-thanks-page {
+body.p-thanks {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.is-thanks-page main {
+.p-thanks main {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1109,7 +1109,7 @@ body.is-thanks-page {
   padding-top: var(--h-header);
 }
 
-.is-thanks-page .sec-title {
+.p-thanks .sec-title {
   width: 100%;
   text-align: center;
   margin-bottom: var(--sp-sm);
@@ -1117,7 +1117,7 @@ body.is-thanks-page {
   font-size: clamp(1.75rem, 5vw, 2.25rem);
 }
 
-.is-thanks-page .sec-title::after {
+.p-thanks .sec-title::after {
   display: none;
 }
 

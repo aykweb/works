@@ -33,30 +33,30 @@
   });
   /* ========================================== */
 
-function initActiveNav() {
-  const sections = document.querySelectorAll('main section[id], .hero');
-  const navLinks = document.querySelectorAll('.global-nav__list a');
+  function initActiveNav() {
+    const sections = document.querySelectorAll('main section[id], .hero');
+    const navLinks = document.querySelectorAll('.header__nav-link');
 
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id; // heroの場合は空文字になる
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id; // heroの場合は空文字になる
 
-        navLinks.forEach((link) => {
-          if (!id) {
-            link.classList.remove('is-current');
-          } else {
-            link.classList.toggle('is-current', link.getAttribute('href').endsWith(`#${id}`));
-          }
-        });
-      }
+          navLinks.forEach((link) => {
+            if (!id) {
+              link.classList.remove('is-current');
+            } else {
+              link.classList.toggle('is-current', link.getAttribute('href').endsWith(`#${id}`));
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px -50% 0px'
     });
-  }, {
-    rootMargin: '-50% 0px -50% 0px'
-  });
 
-  sections.forEach((section) => obs.observe(section));
-}
+    sections.forEach((section) => obs.observe(section));
+  }
 
 
   /* =====================
@@ -64,11 +64,11 @@ function initActiveNav() {
 ===================== */
   function initHamBtn() {
     const nav = document.querySelector('header nav');
-    const hamBtn = document.querySelector('#ham-btn');
+    const hamBtn = document.querySelector('#js-toggle-btn');
 
 
-    const navTargets = Array.from(nav.children).filter(el => el.id !== 'ham-btn' && el.id !== 'sp-menu');
-    const bodyTargets = Array.from(document.body.children).filter(el => el.tagName !== 'HEADER' && el.id !== 'modal-container');
+    const navTargets = Array.from(nav.children).filter(el => el.id !== 'js-toggle-btn' && el.id !== 'js-panel');
+    const bodyTargets = Array.from(document.body.children).filter(el => el.tagName !== 'HEADER' && el.id !== 'js-modal-container');
     const inertTargets = navTargets.concat(bodyTargets);
 
     const setBackgroundInert = (isInert) => {
@@ -85,7 +85,7 @@ function initActiveNav() {
       nav.classList.toggle('is-active', isActive);
       hamBtn.setAttribute('aria-expanded', isActive);
       hamBtn.setAttribute('aria-label', isActive ? 'メニューを閉じる' : 'メニューを開く');
-      document.body.classList.toggle('menu-open', isActive);
+      document.body.classList.toggle('u-scroll-lock', isActive);
     };
 
     hamBtn.addEventListener('click', () => {
@@ -96,7 +96,7 @@ function initActiveNav() {
     });
 
     // リンククリック時の処理
-    const spMenu = document.querySelector('#sp-menu');
+    const spMenu = document.querySelector('#js-panel');
     spMenu.addEventListener('click', (e) => {
       if (e.target.closest('a')) {
         updateMenuState(false);
@@ -128,11 +128,11 @@ function initActiveNav() {
   function initModal() {
     // モーダルを開く直前にフォーカスされてた要素
     let lastFocusedElement;
-    const modal = document.querySelector('#modal-container');
+    const modal = document.querySelector('#js-modal-container');
 
     if (modal) {
-      const modalTriggers = document.querySelectorAll('.modal-trigger');
-      const modalCloseBtn = document.querySelector('#modal-close');
+      const modalTriggers = document.querySelectorAll('.works__card--trigger');
+      const modalCloseBtn = document.querySelector('#js-modal-close');
       const modalOverlay = document.querySelector('.modal__overlay');
 
       const modalImg = document.querySelector('.modal__img');
@@ -169,7 +169,7 @@ function initActiveNav() {
       modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', () => {
           lastFocusedElement = trigger;
-          document.documentElement.classList.add('modal-open');
+          document.documentElement.classList.add('u-scroll-lock');
 
           modalImg.src = trigger.dataset.img;
           modalImg.alt = `「${trigger.dataset.title}」のスクリーンショット`;
@@ -203,7 +203,7 @@ function initActiveNav() {
       // 閉じる処理
       const closeModal = () => {
         modal.classList.remove('is-active')
-        document.documentElement.classList.remove('modal-open');
+        document.documentElement.classList.remove('u-scroll-lock');
 
         // SRから隠す
         modal.setAttribute('aria-hidden', 'true');
@@ -228,7 +228,7 @@ function initActiveNav() {
 コピーライト西暦表示
 ===================== */
   function initCopy() {
-    const copyrightEl = document.querySelector('#copyright');
+    const copyrightEl = document.querySelector('#js-copy');
     if (copyrightEl) {
       copyrightEl.textContent = new Date().getFullYear();
     }

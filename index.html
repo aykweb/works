@@ -21,20 +21,20 @@
 </head>
 
 <body>
-  <header id="js-header" class="site-header">
+  <header id="js-header" class="header">
   </header>
   <main>
     <section class="hero">
-      <div class="hero__content container-md">
+      <div class="hero__content u-container-md">
         <h1>
-          <span class="greeting">Hi, I'm</span>
-          <span class="name">Ayumi Kubo.</span>
+          <span class="hero__greeting">Hi, I'm</span>
+          <span class="hero__name">Ayumi Kubo.</span>
         </h1>
-        <p>Frontend Developer</p>
+        <p class="hero__text">Frontend Developer</p>
       </div>
     </section>
     <section id="about">
-      <div class="container-md">
+      <div class="u-container-md">
         <h2 class="sec-title">About</h2>
         <div class="about__content">
           <dl class="about__list">
@@ -53,11 +53,11 @@
       </div>
     </section>
     <section id="works">
-      <div class="container-md">
+      <div class="u-container-md">
         <h2 class="sec-title">Works</h2>
         <ul class="works__list">
           <li>
-            <button class="modal-trigger works__card" aria-labelledby="title-moic" data-title="千葉かくう美術館（MOIC）"
+            <button class="works__card--trigger works__card" aria-labelledby="title-moic" data-title="千葉かくう美術館（MOIC）"
               data-tools="HTML/CSS,JavaScript,Figma" data-img="images/thumb-moic.png"
               data-overview="架空の文化施設を想定したウェブサイトです。" data-structure="WordPress.comで作成したデモページを基にVS Codeで制作しました。"
               data-design="公共施設という性質に合わせて文字の読みやすさを重視しました。展覧会のビジュアルが全面に展開するのを想定しシンプルな構成になっています。"
@@ -74,7 +74,7 @@
           </li>
 
           <li>
-            <button class="modal-trigger works__card" aria-labelledby="title-zouge" data-title="にゅうめんや　象牙"
+            <button class="works__card--trigger works__card" aria-labelledby="title-zouge" data-title="にゅうめんや　象牙"
               data-tools="HTML/CSS,JavaScript,PHP,Figma" data-img="images/thumb-zouge.png"
               data-overview="架空の飲食店を想定したウェブサイトです。" data-structure="Figmaで作成したデザインカンプを基にVS Codeで制作しました。"
               data-design="料理の素材の色合いと特徴的なブランドフォントを採用することで、お店のアイデンティティを表現しました。"
@@ -97,7 +97,7 @@
     </section>
 
     <section id="contact">
-      <div class="container-md">
+      <div class="u-container-md">
         <h2 class="sec-title">Contact</h2>
         <div class="contact__content">
           <p>お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
@@ -126,14 +126,14 @@
     </section>
   </main>
 
-  <div id="modal-container" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+  <div id="js-modal-container" class="modal" role="dialog" aria-modal="true" aria-labelledby="js-modal-title"
     aria-hidden="true" inert>
     <div class="modal__overlay"></div>
     <div class="modal__content">
       <img class="modal__img">
       <div class="modal__inner">
         <div class="modal__header">
-          <button id="modal-close" class="btn" type="button" aria-label="閉じる">
+          <button id="js-modal-close" class="btn" type="button" aria-label="閉じる">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
               <rect width="256" height="256" fill="none" />
               <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round"
@@ -141,7 +141,7 @@
               <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="16" />
             </svg></button>
-          <h3 id="modal-title" class="modal__title"></h3>
+          <h3 id="js-modal-title" class="modal__title"></h3>
           <ul class="modal__tools"></ul>
         </div>
         <div class="modal__body">
@@ -166,7 +166,7 @@
   </div>
 
   <div class="grid-band"></div>
-  <footer id="js-footer" class="site-footer">
+  <footer id="js-footer" class="footer">
   </footer>
 </body>
 
