@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+*.css.map
+css/style.css
+old-style.css
