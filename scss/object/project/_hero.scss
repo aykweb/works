@@ -1,0 +1,37 @@
+.hero {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image: var(--grid-line);
+  background-size: var(--grid-size);
+
+  &__content {
+    flex: 0 1 auto;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+    padding-inline: var(--sp-md);
+    color: var(--c-accent);
+
+    @media (max-width: 768px) {
+      width: max-content;
+    }
+  }
+
+  &__greeting {
+    display: block;
+    font-size: clamp(1rem, 8.5vw, 2rem);
+  }
+
+  &__name {
+    font-size: clamp(2rem, 9.5vw, 3rem);
+    text-shadow: var(--txt-shadow);
+  }
+
+  &__text {
+    display: block;
+    margin-top: 0.25em;
+    margin-left: 0.25em;
+    font-size: var(--fs-md);
+  }
+}

@@ -1,0 +1,118 @@
+.works {
+  min-height: 90vh;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+
+  & .u-container-md {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    margin-block: auto;
+    display: grid;
+    column-gap: var(--sp-md);
+    grid-template-columns: 1fr 1fr;
+    padding-inline: var(--sp-sm);
+
+    @media (max-width: 768px) {
+      row-gap: var(--sp-lg);
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+  }
+
+  &__card--trigger.works__card {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::after {
+      content: '詳細を見る';
+      position: absolute;
+      top: 0;
+      inset-inline: 0;
+      bottom: var(--h-works-info);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-bg);
+      -webkit-text-stroke: 0.1px var(--c-text-sub);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-500);
+      letter-spacing: var(--ls-wide);
+      background: rgba(30, 28, 28, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--t);
+    }
+
+    @media (hover: hover) {
+
+      /* マウスホバー, Tab */
+      &:hover::after,
+      &:focus-visible::after {
+        opacity: 1;
+      }
+    }
+
+    @media (hover: none) {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  &__info {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: var(--h-works-info);
+    padding-inline: 5%;
+    background: var(--c-bg);
+
+    &>* {
+      min-height: 0;
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+
+    &>span {
+      font-family: var(--ff-brand);
+      color: var(--c-text-sub);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-500);
+    }
+
+    &>h3 {
+      margin-top: var(--sp-sm);
+      font-size: var(--fs-base);
+      font-weight: 400;
+
+      /* iOS Safari対応 */
+      /* buttonの既定色がUA側で上書きされて継承されることがあるため */
+      color: var(--c-text);
+
+      @media (max-width: 540px) {
+        margin-top: var(--sp-xs);
+      }
+    }
+  }
+}

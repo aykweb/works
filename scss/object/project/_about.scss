@@ -1,0 +1,52 @@
+.about {
+  min-height: 70vh;
+
+  &__content {
+    padding-inline: var(--sp-sm);
+  }
+
+  &__list dt {
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-wider);
+    color: var(--c-text-sub);
+  }
+
+  &__list dd {
+    margin-top: var(--sp-sm);
+    font-size: var(--fs-base);
+    line-height: 1.75;
+    letter-spacing: var(--ls-base);
+    color: var(--c-text);
+  }
+
+  &__list dd+dd {
+    margin-block-start: 2.25em;
+  }
+
+  &__list dd+dt {
+    margin-top: 1.5em;
+  }
+
+  &__photo {
+    display: block;
+    transform: rotate(-3deg);
+    width: 10vw;
+    min-width: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 24% 20%;
+    margin-top: 2.25rem;
+    border-radius: 50%;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 0.12);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+
+    @media (max-width: 768px) {
+      margin-inline: auto;
+    }
+  }
+
+  &__photo.is-visible {
+    opacity: 1;
+  }
+}
