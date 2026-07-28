@@ -1,0 +1,49 @@
+html {
+  font-size: 100%;
+  scrollbar-gutter: stable;
+  scroll-padding-top: 3rem;
+  scroll-snap-type: y proximity;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+
+  @media (max-width: 768px) {
+    scroll-snap-type: none;
+  }
+}
+
+body {
+  position: relative;
+  font-feature-settings: "palt";
+  font-optical-sizing: auto;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: var(--ls-base);
+
+  color: var(--c-text);
+  background: var(--c-bg);
+}
+
+p,
+dd,
+.contact__field {
+  max-inline-size: 40em;
+}
+
+a {
+  white-space: nowrap;
+  transition: opacity var(--t);
+}
+
+@media (hover: hover) {
+  a:hover {
+    opacity: 0.65;
+  }
+}
