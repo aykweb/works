@@ -1,3 +1,5 @@
+@use "../foundation";
+
 .footer {
   scroll-snap-align: end;
   padding-block: var(--sp-sm);
@@ -13,10 +15,18 @@
   }
 
   &__logo {
+    @include foundation.brand-font;
+    @include foundation.brand-font-weight(2.3px);
+
     display: block;
     font-size: var(--fs-lg);
     letter-spacing: var(--ls-wider);
     color: var(--c-accent);
+  }
+
+  &__nav {
+    @include foundation.brand-font;
+    @include foundation.brand-font-weight(1.2px);
   }
 
   &__nav-list {

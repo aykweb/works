@@ -1,3 +1,5 @@
+@use "../../foundation";
+
 .contact {
   min-height: 70vh;
 
@@ -26,6 +28,8 @@
     color: var(--c-text-sub);
 
     & label {
+      @include foundation.label-text;
+
       font-size: var(--fs-sm);
     }
 

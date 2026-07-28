@@ -1,3 +1,5 @@
+@use "../../foundation";
+
 .modal {
   display: none;
 
@@ -106,6 +108,9 @@
 
 
   &__tag {
+    @include foundation.brand-font;
+    @include foundation.brand-font-weight(1.2px);
+
     padding: 0.25em 0.375em;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
@@ -129,6 +134,8 @@
   }
 
   &__details h4 {
+    @include foundation.label-text;
+
     font-size: 0.75rem;
   }
 

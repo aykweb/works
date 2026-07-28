@@ -1,4 +1,8 @@
+@use "../foundation";
+
 .header {
+  @include foundation.brand-font;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -16,6 +20,10 @@
     justify-content: space-between;
   }
 
+  &__logo {
+    @include foundation.brand-font-weight(2.3px);
+  }
+
   &__logo-link {
     display: block;
     font-size: clamp(2.25rem, 5vw, var(--h-header-content));
@@ -24,6 +32,8 @@
   }
 
   &__nav {
+    @include foundation.brand-font-weight(1.2px);
+
     position: relative;
     display: flex;
     align-items: center;
@@ -53,6 +63,8 @@
     }
 
     &.is-current {
+      @include foundation.brand-font-weight(1.6px);
+
       color: var(--c-accent);
     }
 
@@ -152,6 +164,10 @@
       /* 閉じる時 */
       transition: opacity 0.4s,
         visibility 0s 0.4s;
+    }
+
+    &__panel-list {
+      @include foundation.brand-font-weight(1.6px);
     }
 
     &__panel-list li {

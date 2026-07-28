@@ -1,4 +1,9 @@
+@use "../../foundation";
+
 .sec-title {
+  @include foundation.brand-font;
+  @include foundation.brand-font-weight(2.1px);
+
   position: relative;
   translate: 0 0.4rem;
   display: inline-block;

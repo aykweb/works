@@ -1,3 +1,5 @@
+@use "../../foundation";
+
 .works {
   min-height: 90vh;
   height: max-content;
@@ -95,7 +97,9 @@
     }
 
     &>span {
-      font-family: var(--ff-brand);
+      @include foundation.brand-font;
+      @include foundation.brand-font-weight(1.6px);
+
       color: var(--c-text-sub);
       font-size: var(--fs-sm);
       font-weight: var(--fw-500);

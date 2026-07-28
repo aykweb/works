@@ -1,3 +1,5 @@
+@use "../../foundation";
+
 .about {
   min-height: 70vh;
 
@@ -6,6 +8,9 @@
   }
 
   &__list dt {
+    @include foundation.brand-font;
+    @include foundation.brand-font-weight(1.6px);
+
     font-size: var(--fs-sm);
     letter-spacing: var(--ls-wider);
     color: var(--c-text-sub);
