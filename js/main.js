@@ -63,7 +63,7 @@
 ハンバーガーメニュー
 ===================== */
   function initHamBtn() {
-    const nav = document.querySelector('header nav');
+    const nav = document.querySelector('.header__nav');
     const hamBtn = document.querySelector('#js-toggle-btn');
 
 

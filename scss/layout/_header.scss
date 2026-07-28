@@ -1,0 +1,233 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: var(--h-header);
+  border-bottom: none;
+  background: linear-gradient(to bottom,
+      rgb(var(--c-bg-rgb) / 0.9) 0%,
+      rgb(var(--c-bg-rgb)/ 0) 80%);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo-link {
+    display: block;
+    font-size: clamp(2.25rem, 5vw, var(--h-header-content));
+    letter-spacing: var(--ls-wider);
+    color: var(--c-text);
+  }
+
+  &__nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--h-header);
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 0 var(--sp-xl);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-base);
+
+    &:hover {
+      /* 共通設定から除外 */
+      opacity: 1;
+    }
+
+    &.is-current {
+      color: var(--c-accent);
+    }
+
+    &.is-current::before,
+    &.is-current::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      translate: -50% 50%;
+      background: currentColor;
+    }
+
+    &.is-current::before {
+      width: 12px;
+      height: 1.6px;
+    }
+
+    &.is-current::after {
+      width: 1.6px;
+      height: 12px;
+    }
+  }
+}
+
+
+// ------------------------------------
+// トグルボタン
+// ------------------------------------
+
+.header {
+  &__toggle-btn {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &__toggle-btn {
+      z-index: 100;
+      position: absolute;
+      top: calc((var(--h-header) - var(--h-header-content)) / 2);
+      right: 0;
+      display: block;
+      width: var(--h-header-content);
+      height: var(--h-header-content);
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        display: block;
+        width: 60%;
+        height: 2px;
+        border-radius: 4px;
+        background: var(--c-text);
+        transition: rotate 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:nth-child(2) {
+          rotate: 90deg;
+        }
+      }
+    }
+  }
+
+  &__nav.is-active .header__toggle-btn span:nth-child(1) {
+    rotate: 45deg;
+  }
+
+  &__nav.is-active .header__toggle-btn span:nth-child(2) {
+    rotate: 135deg;
+  }
+}
+
+// ------------------------------------
+// メニューパネル
+// ------------------------------------
+
+.header {
+  &__panel {
+    display: none;
+  }
+
+  /* 待機中 */
+  @media (max-width: 768px) {
+    &__panel {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: block;
+      place-items: center;
+      background: var(--c-bg-sub);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      /* 閉じる時 */
+      transition: opacity 0.4s,
+        visibility 0s 0.4s;
+    }
+
+    &__panel-list li {
+      transform: translateY(4rem);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      /* 閉じる時 */
+      transition: opacity 0.1s;
+    }
+
+
+    &__panel-link {
+      display: block;
+      min-height: 24px;
+      font-size: var(--fs-lg);
+      letter-spacing: var(--ls-wide);
+    }
+
+    &__panel-list a[href*="contact"] {
+      color: var(--c-accent);
+    }
+  }
+}
+
+// ------------------------------------
+// オーバーレイ中
+// ------------------------------------
+
+.header {
+  &__nav.is-active .header__panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    /* 開く時 */
+    transition: opacity 0.4s,
+      visibility 0s 0s;
+  }
+
+  &__nav.is-active .header__panel-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: var(--sp-xl) 0;
+    width: max-content;
+    margin-inline: auto;
+    padding-block: 4rem;
+  }
+
+  &__nav.is-active .header__panel-list li {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    /* 開く時 */
+    transition: opacity 0.4s,
+      transform 0.4s;
+  }
+
+  &__nav.is-active .header__panel-list li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  &__nav.is-active .header__panel-list li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  &__nav.is-active .header__panel-list li:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  &__nav.is-active .header__panel-list li:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+}
