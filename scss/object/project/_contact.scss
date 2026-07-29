@@ -27,14 +27,14 @@
     gap: 1em 0;
     color: var(--c-text-sub);
 
-    & label {
+    label {
       @include foundation.label-text;
 
       font-size: var(--fs-sm);
     }
 
-    & input,
-    & textarea {
+    input,
+    textarea {
       border: none;
       outline: none;
       resize: none;
@@ -61,11 +61,11 @@
     }
 
 
-    & input {
+    input {
       line-height: 1.4;
     }
 
-    & textarea {
+    textarea {
       line-height: 1.6;
     }
   }

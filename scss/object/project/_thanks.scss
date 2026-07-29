@@ -3,13 +3,13 @@ body.p-thanks {
   flex-direction: column;
   min-height: 100vh;
 
-  & main {
+  main {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  & .sec-title {
+  .sec-title {
     width: 100%;
     text-align: center;
     margin-bottom: var(--sp-sm);
@@ -17,7 +17,7 @@ body.p-thanks {
     font-size: clamp(1.75rem, 5vw, 2.25rem);
   }
 
-  & .sec-title::after {
+  .sec-title::after {
     display: none;
   }
 
