@@ -58,7 +58,7 @@
     letter-spacing: var(--ls-base);
 
     &:hover {
-      /* 共通設定から除外 */
+      // 共通設定から除外 
       opacity: 1;
     }
 
@@ -148,9 +148,9 @@
     display: none;
   }
 
-  /* 待機中 */
   @media (max-width: 768px) {
     &__panel {
+      // 待機中 
       position: fixed;
       inset: 0;
       z-index: 90;
@@ -161,7 +161,7 @@
       visibility: hidden;
       pointer-events: none;
 
-      /* 閉じる時 */
+      // 閉じる時 
       transition: opacity 0.4s,
         visibility 0s 0.4s;
     }
@@ -176,7 +176,7 @@
       visibility: hidden;
       pointer-events: none;
 
-      /* 閉じる時 */
+      // 閉じる時 
       transition: opacity 0.1s;
     }
 
@@ -204,7 +204,7 @@
     visibility: visible;
     pointer-events: auto;
 
-    /* 開く時 */
+    // 開く時 
     transition: opacity 0.4s,
       visibility 0s 0s;
   }
@@ -226,7 +226,7 @@
     opacity: 1;
     pointer-events: auto;
 
-    /* 開く時 */
+    // 開く時 
     transition: opacity 0.4s,
       transform 0.4s;
   }

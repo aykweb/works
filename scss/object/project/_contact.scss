@@ -52,7 +52,7 @@
       border-bottom: var(--border);
       transition: border-color var(--t);
 
-      /* iOS Safari対応 */
+      // iOS Safari対応 
       font-size: 16px;
 
       &:focus {

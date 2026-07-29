@@ -57,9 +57,9 @@
 
     @media (hover: hover) {
 
-      /* マウスホバー, Tab */
       &:hover::after,
       &:focus-visible::after {
+        // マウスホバー, Tab
         opacity: 1;
       }
     }
@@ -110,8 +110,8 @@
       font-size: var(--fs-base);
       font-weight: 400;
 
-      /* iOS Safari対応 */
-      /* buttonの既定色がUA側で上書きされて継承されることがあるため */
+      // iOS Safari対応 
+      // buttonの既定色がUA側で上書きされて継承されることがあるため 
       color: var(--c-text);
 
       @media (max-width: 540px) {
