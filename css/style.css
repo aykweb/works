@@ -433,7 +433,6 @@ img {
 }
 .footer__copy span {
   display: inline-block;
-  padding-inline: 0.5em;
   font-weight: inherit;
 }
 
