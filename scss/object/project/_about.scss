@@ -1,8 +1,6 @@
 @use "../../foundation/mixins" as m;
 
 .about {
-  // min-height: 70vh;
-
   &__content {
     padding-inline: var(--sp-sm);
   }
@@ -24,35 +22,23 @@
     color: var(--c-text);
 
     &+& {
-      margin-top: 1.5rem;
+      margin-top: var(--sp-lg);
     }
   }
 
-
   &__body+.about__title {
-    margin-top: 2rem;
+    margin-top: var(--sp-xl);
   }
 
   &__photo {
     display: block;
-    transform: rotate(-3deg);
-    width: 10vw;
-    min-width: 140px;
-    aspect-ratio: 1 / 1;
+    width: 140px;
+    height: 200px;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
-    object-position: 24% 20%;
-    margin-top: 2.25rem;
-    border-radius: 50%;
+    object-position: 20% 36%;
+    margin-top: 3rem;
+    border-radius: 0.25rem;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 0.12);
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
-
-    @include m.mq {
-      margin-inline: auto;
-    }
-  }
-
-  &__photo.is-visible {
-    opacity: 1;
   }
 }

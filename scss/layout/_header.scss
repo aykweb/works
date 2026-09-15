@@ -12,7 +12,11 @@
   border-bottom: none;
   background: linear-gradient(to bottom,
       rgb(var(--c-bg-rgb) / 0.9) 0%,
-      rgb(var(--c-bg-rgb)/ 0) 80%);
+      rgb(var(--c-bg-rgb) / 0.75) 20%,
+      rgb(var(--c-bg-rgb) / 0.5) 38%,
+      rgb(var(--c-bg-rgb) / 0.25) 52%,
+      rgb(var(--c-bg-rgb) / 0.08) 65%,
+      rgb(var(--c-bg-rgb) / 0) 75%);
 
   &__content {
     display: flex;
@@ -51,7 +55,7 @@
     }
   }
 
-// ナビリンク
+  // ナビリンク
   &__nav-link {
     position: relative;
     display: flex;
@@ -59,6 +63,11 @@
     min-height: 44px;
     font-size: var(--fs-md);
     letter-spacing: var(--ls-base);
+
+    @include m.hover-focus {
+      opacity: 1;
+    }
+
 
     // 現在のロケーション設定
     &.is-current {
@@ -76,13 +85,13 @@
       }
 
       &::before {
-        width: 0.75rem;
-        height: 0.1rem;
+        width: 0.875rem;
+        height: 0.125rem;
       }
 
       &::after {
-        width: 0.1rem;
-        height: 0.75rem;
+        width: 0.125rem;
+        height: 0.875rem;
       }
     }
   }
@@ -106,6 +115,7 @@
     right: 0.5rem;
     width: var(--h-header-content);
     height: var(--h-header-content);
+    border-radius: 0.25rem;
     cursor: pointer;
 
     &-bar {
@@ -118,11 +128,26 @@
       height: 0.125rem;
       border-radius: 4px;
       background: var(--c-text);
-      transition: rotate 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    &-bar:nth-child(2) {
-      rotate: 90deg;
+    &--open {
+      span:nth-child(2) {
+        rotate: 90deg;
+      }
+    }
+
+    &--close {
+      color: var(--c-bg);
+      background: none;
+      border: 2px solid var(--c-bg);
+
+      span:nth-child(1) {
+        rotate: 45deg;
+      }
+
+      span:nth-child(2) {
+        rotate: 135deg;
+      }
     }
   }
 }
@@ -166,7 +191,7 @@ body:has(dialog[open]) {
     grid-template-rows: var(--h-header) 1fr;
     background: var(--c-bg-sub);
 
-    --t: 0.5s;
+    --t: 0.6s;
     transition:
       translate var(--t),
       display var(--t) allow-discrete,
@@ -190,16 +215,6 @@ body:has(dialog[open]) {
     pointer-events: auto;
     translate: 0 0;
     opacity: 1;
-
-    .header__toggle--close {
-      span:nth-child(1) {
-        rotate: 45deg;
-      }
-
-      span:nth-child(2) {
-        rotate: 135deg;
-      }
-    }
 
     // 展開直前
     @starting-style {

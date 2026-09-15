@@ -36,7 +36,7 @@
  main>section {
   min-height: 80vh;
    scroll-snap-align: end;
-   padding-block: var(--sp-md) 4rem;
+   padding-block: var(--sp-md) 3.5rem;
    padding-inline: clamp(1rem, 5vw, 3rem);
 
    @include m.mq {
