@@ -5,7 +5,7 @@
 
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 94vh;
   background-image: var(--grid-line);
   background-size: var(--grid-size);
 
@@ -40,7 +40,6 @@
     @include m.brand-font-weight(1.2px);
 
     display: block;
-    margin-top: 0.25em;
     margin-left: 0.25em;
     font-size: var(--fs-md);
   }

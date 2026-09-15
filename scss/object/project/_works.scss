@@ -1,10 +1,9 @@
 @use "../../foundation/mixins" as m;
 
 .works {
-  min-height: 90vh;
-  height: max-content;
   display: flex;
   flex-direction: column;
+  height: max-content;
 
   .u-container-md {
     flex: 1;
@@ -34,6 +33,10 @@
     border-radius: 1px;
     overflow: hidden;
     cursor: pointer;
+
+    @include m.hover-focus {
+      border-color: var(--c-accent);
+    }
 
     &::after {
       content: '詳細を見る';

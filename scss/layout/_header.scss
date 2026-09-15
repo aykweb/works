@@ -51,6 +51,7 @@
     }
   }
 
+// ナビリンク
   &__nav-link {
     position: relative;
     display: flex;
@@ -59,15 +60,7 @@
     font-size: var(--fs-md);
     letter-spacing: var(--ls-base);
 
-    @include m.hover-focus {
-      opacity: 1;
-      color: var(--c-accent);
-    }
-
-
-    // ------------------------------------
-    // ロケーション設定
-    // ------------------------------------
+    // 現在のロケーション設定
     &.is-current {
       @include m.brand-font-weight(1.6px);
       color: var(--c-accent);

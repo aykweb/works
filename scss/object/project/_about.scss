@@ -1,13 +1,13 @@
 @use "../../foundation/mixins" as m;
 
 .about {
-  min-height: 70vh;
+  // min-height: 70vh;
 
   &__content {
     padding-inline: var(--sp-sm);
   }
 
-  &__list dt {
+  &__title {
     @include m.brand-font;
     @include m.brand-font-weight(1.6px);
 
@@ -16,20 +16,21 @@
     color: var(--c-text-sub);
   }
 
-  &__list dd {
-    margin-top: var(--sp-sm);
+  &__body {
+    margin-top: var(--sp-xs);
     font-size: var(--fs-base);
-    line-height: 1.75;
+    line-height: 1.7;
     letter-spacing: var(--ls-base);
     color: var(--c-text);
+
+    &+& {
+      margin-top: 1.5rem;
+    }
   }
 
-  &__list dd+dd {
-    margin-block-start: 2.25em;
-  }
 
-  &__list dd+dt {
-    margin-top: 1.5em;
+  &__body+.about__title {
+    margin-top: 2rem;
   }
 
   &__photo {
