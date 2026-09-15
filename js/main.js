@@ -63,45 +63,33 @@
 ハンバーガーメニュー
 ===================== */
   function initHamBtn() {
-    const nav = document.querySelector('.header__nav');
-    const hamBtn = document.querySelector('#js-toggle-btn');
+    // ダイアログ（モバイルメニュー）開閉
+    const openBtn = document.getElementById('js-panel-open');
+    const closeBtn = document.getElementById('js-panel-close');
+    const menu = document.getElementById('js-panel');
 
-
-    const navTargets = Array.from(nav.children).filter(el => el.id !== 'js-toggle-btn' && el.id !== 'js-panel');
-    const bodyTargets = Array.from(document.body.children).filter(el => el.tagName !== 'HEADER' && el.id !== 'js-modal-container');
-    const inertTargets = navTargets.concat(bodyTargets);
-
-    const setBackgroundInert = (isInert) => {
-      inertTargets.forEach((el) => {
-        if (isInert) {
-          el.setAttribute('inert', '');
-        } else {
-          el.removeAttribute('inert');
-        }
+    openBtn.addEventListener('click', () => {
+      menu.showModal();
+      requestAnimationFrame(()=>{
+        menu.classList.add('is-open');
       });
-    };
-
-    const updateMenuState = (isActive) => {
-      nav.classList.toggle('is-active', isActive);
-      hamBtn.setAttribute('aria-expanded', isActive);
-      hamBtn.setAttribute('aria-label', isActive ? 'メニューを閉じる' : 'メニューを開く');
-      document.body.classList.toggle('u-scroll-lock', isActive);
-    };
-
-    hamBtn.addEventListener('click', () => {
-      const currentState = nav.classList.contains('is-active');
-      const nextState = !currentState;
-      updateMenuState(nextState);
-      setBackgroundInert(nextState);
     });
 
-    // リンククリック時の処理
-    const spMenu = document.querySelector('#js-panel');
-    spMenu.addEventListener('click', (e) => {
-      if (e.target.closest('a')) {
-        updateMenuState(false);
-        setBackgroundInert(false);
+    closeBtn.addEventListener('click', () => {
+      menu.close();
+      menu.classList.remove('is-open');
+    });
+
+    menu.addEventListener('click', (e) => {
+      if (e.target === menu) {
+        menu.close();
       }
+    });
+
+    menu.querySelectorAll('a[href]').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.close();
+      });
     });
   }
 

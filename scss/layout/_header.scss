@@ -1,7 +1,7 @@
-@use "../foundation";
+@use "../foundation/mixins" as m;
 
 .header {
-  @include foundation.brand-font;
+  @include m.brand-font;
 
   position: fixed;
   top: 0;
@@ -20,8 +20,9 @@
     justify-content: space-between;
   }
 
+  // h1ロゴ
   &__logo {
-    @include foundation.brand-font-weight(2.3px);
+    @include m.brand-font-weight(2.3px);
   }
 
   &__logo-link {
@@ -31,8 +32,9 @@
     color: var(--c-text);
   }
 
+  // グロナビ
   &__nav {
-    @include foundation.brand-font-weight(1.2px);
+    @include m.brand-font-weight(1.2px);
 
     position: relative;
     display: flex;
@@ -44,7 +46,7 @@
     display: flex;
     gap: 0 var(--sp-xl);
 
-    @media (max-width: 768px) {
+    @include m.mq {
       display: none;
     }
   }
@@ -57,193 +59,227 @@
     font-size: var(--fs-md);
     letter-spacing: var(--ls-base);
 
-    &:hover {
-      // 共通設定から除外 
+    @include m.hover-focus {
       opacity: 1;
-    }
-
-    &.is-current {
-      @include foundation.brand-font-weight(1.6px);
-
       color: var(--c-accent);
     }
 
-    &.is-current::before,
-    &.is-current::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      translate: -50% 50%;
-      background: currentColor;
-    }
 
-    &.is-current::before {
-      width: 12px;
-      height: 1.6px;
-    }
+    // ------------------------------------
+    // ロケーション設定
+    // ------------------------------------
+    &.is-current {
+      @include m.brand-font-weight(1.6px);
+      color: var(--c-accent);
 
-    &.is-current::after {
-      width: 1.6px;
-      height: 12px;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        translate: -50% 50%;
+        background: currentColor;
+      }
+
+      &::before {
+        width: 0.75rem;
+        height: 0.1rem;
+      }
+
+      &::after {
+        width: 0.1rem;
+        height: 0.75rem;
+      }
     }
   }
 }
 
 
 // ------------------------------------
-// トグルボタン
+// トグル
 // ------------------------------------
 
-.header {
-  &__toggle-btn {
-    display: none;
+.header__toggle--open {
+  display: none;
+}
+
+// トグル共通設定
+@include m.mq {
+  .header__toggle {
+    display: block;
+    position: absolute;
+    top: calc((var(--h-header) - var(--h-header-content)) / 2);
+    right: 0.5rem;
+    width: var(--h-header-content);
+    height: var(--h-header-content);
+    cursor: pointer;
+
+    &-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      display: block;
+      width: 60%;
+      height: 2px;
+      border-radius: 4px;
+      background: var(--c-text);
+      transition: rotate 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &-bar:nth-child(2) {
+      rotate: 90deg;
+    }
+  }
+}
+
+
+// ------------------------------------
+// パネル（モーダル）
+// ------------------------------------
+
+.header__panel {
+  display: none;
+}
+
+// モーダル時スクロール停止
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/*  --------【待機時】-------- */
+@include m.mq {
+  .header__panel {
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+
+    interactivity: inert;
+    pointer-events: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    inline-size: 100vw;
+    height: 100dvh;
+    block-size: 100dvh;
+    overflow: visible;
+
+    translate: 0 -100%;
+    display: grid;
+    grid-template-rows: var(--h-header) 1fr;
+    background: var(--c-bg-sub);
+
+    --t: 0.5s;
+    transition:
+      translate var(--t),
+      display var(--t) allow-discrete,
+      interactivity 0s allow-discrete,
+      pointer-events 0s allow-discrete;
+    transition-behavior: allow-discrete;
+
+    &::backdrop {
+      background: transparent;
+    }
+
+    &:not([open]) {
+      display: none;
+    }
   }
 
-  @media (max-width: 768px) {
-    &__toggle-btn {
-      z-index: 100;
-      position: absolute;
-      top: calc((var(--h-header) - var(--h-header-content)) / 2);
-      right: 0;
-      display: block;
-      width: var(--h-header-content);
-      height: var(--h-header-content);
-      cursor: pointer;
 
-      span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        display: block;
-        width: 60%;
-        height: 2px;
-        border-radius: 4px;
-        background: var(--c-text);
-        transition: rotate 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /*  --------【展開時】-------- */
+  .header__panel[open] {
+    interactivity: auto;
+    pointer-events: auto;
+    translate: 0 0;
+    opacity: 1;
 
-        &:nth-child(2) {
-          rotate: 90deg;
-        }
+    .header__toggle--close {
+      span:nth-child(1) {
+        rotate: 45deg;
+      }
+
+      span:nth-child(2) {
+        rotate: 135deg;
+      }
+    }
+
+    // 展開直前
+    @starting-style {
+
+      interactivity: inert;
+      pointer-events: none;
+      translate: 0 -100%;
+
+
+      &::backdrop {
+        opacity: 0;
       }
     }
   }
 
-  &__nav.is-active .header__toggle-btn span:nth-child(1) {
-    rotate: 45deg;
-  }
-
-  &__nav.is-active .header__toggle-btn span:nth-child(2) {
-    rotate: 135deg;
-  }
-}
-
-// ------------------------------------
-// メニューパネル
-// ------------------------------------
-
-.header {
-  &__panel {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    &__panel {
-      // 待機中 
-      position: fixed;
-      inset: 0;
-      z-index: 90;
-      display: block;
-      place-items: center;
-      background: var(--c-bg-sub);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-
-      // 閉じる時 
-      transition: opacity 0.4s,
-        visibility 0s 0.4s;
-    }
-
+  // ------------------------------------
+  // パネル（コンテンツ）
+  // ------------------------------------
+  /*  --------【待機時】-------- */
+  .header {
     &__panel-list {
-      @include foundation.brand-font-weight(1.6px);
+      @include m.brand-font-weight(1.6px);
+
+      display: grid;
+      place-content: center;
+      row-gap: var(--sp-xl);
+      padding-block: 4rem;
     }
 
-    &__panel-list li {
-      transform: translateY(4rem);
+    &__panel-item {
       opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-
-      // 閉じる時 
-      transition: opacity 0.1s;
+      translate: 0 -3rem;
+      transition:
+        opacity var(--t),
+        translate var(--t);
     }
-
 
     &__panel-link {
-      display: block;
-      min-height: 24px;
+      display: flex;
+      align-items: center;
+      min-height: 1.5rem;
       font-size: var(--fs-lg);
       letter-spacing: var(--ls-wide);
-    }
 
-    &__panel-list a[href*="contact"] {
-      color: var(--c-accent);
+      &[href*="contact"] {
+        color: var(--c-accent);
+      }
+    }
+  }
+
+  /*  --------【展開時】-------- */
+  .header__panel[open] {
+    @for $i from 1 through 5 {
+      .header__panel-item:nth-child(#{$i}) {
+        opacity: 1;
+        translate: 0 0;
+        transition-delay: 0.2s + ($i * 0.05s);
+
+        // 展開直前
+        @starting-style {
+          opacity: 0;
+          translate: 0 -3rem;
+          transition-delay: 0s;
+        }
+      }
     }
   }
 }
 
-// ------------------------------------
-// オーバーレイ中
-// ------------------------------------
+@media (prefers-reduced-motion: reduce) {
 
-.header {
-  &__nav.is-active .header__panel {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    // 開く時 
-    transition: opacity 0.4s,
-      visibility 0s 0s;
-  }
-
-  &__nav.is-active .header__panel-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: var(--sp-xl) 0;
-    width: max-content;
-    margin-inline: auto;
-    padding-block: 4rem;
-  }
-
-  &__nav.is-active .header__panel-list li {
-    transform: translateY(0);
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-
-    // 開く時 
-    transition: opacity 0.4s,
-      transform 0.4s;
-  }
-
-  &__nav.is-active .header__panel-list li:nth-child(1) {
-    transition-delay: 0.1s;
-  }
-
-  &__nav.is-active .header__panel-list li:nth-child(2) {
-    transition-delay: 0.2s;
-  }
-
-  &__nav.is-active .header__panel-list li:nth-child(3) {
-    transition-delay: 0.3s;
-  }
-
-  &__nav.is-active .header__panel-list li:nth-child(4) {
-    transition-delay: 0.4s;
+  .header__panel,
+  .header__panel-item {
+    transition: none !important;
   }
 }

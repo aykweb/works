@@ -8,20 +8,27 @@
       <li><a href="/works/index.html#works" class="header__nav-link">Works</a></li>
       <li><a href="/works/index.html#contact" class="header__nav-link">Contact</a></li>
     </ul>
-
-    <button id="js-toggle-btn" class="header__toggle-btn" type="button" aria-label="メニューを開く" aria-controls="js-panel"
-      aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-
-    <div id="js-panel" class="header__panel">
-      <ul class="header__panel-list">
-        <li><a href="/works/index.html" class="header__panel-link">Top</a></li>
-        <li><a href="/works/index.html#about" class="header__panel-link">About</a></li>
-        <li><a href="/works/index.html#works" class="header__panel-link">Works</a></li>
-        <li><a href="/works/index.html#contact" class="header__panel-link">Contact</a></li>
-      </ul>
-    </div>
   </nav>
+
+  <button id="js-panel-open" class="header__toggle header__toggle--open" type="button" aria-label="メニューを開く">
+    <span class="header__toggle-bar"></span>
+    <span class="header__toggle-bar"></span>
+  </button>
+
+  <dialog id="js-panel" class="header__panel">
+    <form method="dialog">
+      <button id="js-panel-close" class="header__toggle header__toggle--close" type="button" aria-label="メニューを閉じる">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </form>
+    <nav class="header__panel-nav">
+      <ul class="header__panel-list">
+        <li class="header__panel-item"><a href="/works/index.html" class="header__panel-link">Top</a></li>
+        <li class="header__panel-item"><a href="/works/index.html#about" class="header__panel-link">About</a></li>
+        <li class="header__panel-item"><a href="/works/index.html#works" class="header__panel-link">Works</a></li>
+        <li class="header__panel-item"><a href="/works/index.html#contact" class="header__panel-link">Contact</a></li>
+      </ul>
+    </nav>
+  </dialog>
 </div>
