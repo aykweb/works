@@ -38,11 +38,11 @@
 // モーダルカードの表示
 @keyframes modal-in {
   0% {
-    translate: 0 20px;
+    transform: translateY(20px);
   }
 
   100% {
-    translate: 0 0;
+    transform: translateY(0);
   }
 }
 

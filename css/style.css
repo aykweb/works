@@ -206,18 +206,22 @@ a:focus-visible {
 }
 @-webkit-keyframes modal-in {
   0% {
-    translate: 0 20px;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
   }
   100% {
-    translate: 0 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 @keyframes modal-in {
   0% {
-    translate: 0 20px;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
   }
   100% {
-    translate: 0 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 @-webkit-keyframes scroll-cue-bounce {
@@ -836,7 +840,7 @@ body:has(dialog[open]) {
   line-height: 1.6;
 }
 .modal__link.btn {
-  gap: 0 0.125em;
+  gap: 0 0.25em;
   margin-top: var(--sp-xl);
   padding: 0.875em 0;
 }
@@ -845,8 +849,8 @@ body:has(dialog[open]) {
 }
 .modal__link svg {
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -webkit-transition: -webkit-transform 0.15s;
