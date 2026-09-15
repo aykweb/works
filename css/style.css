@@ -219,6 +219,42 @@ a:focus-visible {
     translate: 0 0;
   }
 }
+@-webkit-keyframes scroll-cue-bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+            animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+  50% {
+    -webkit-transform: translateY(6px);
+            transform: translateY(6px);
+    -webkit-animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes scroll-cue-bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+            animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+  50% {
+    -webkit-transform: translateY(6px);
+            transform: translateY(6px);
+    -webkit-animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 .header {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
@@ -328,7 +364,7 @@ a:focus-visible {
     translate: -50% -50%;
     display: block;
     width: 60%;
-    height: 2px;
+    height: 0.125rem;
     border-radius: 4px;
     background: var(--c-text);
     -webkit-transition: rotate 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -735,9 +771,6 @@ body:has(dialog[open]) {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-.modal__header .btn svg > * {
-  stroke-width: 18;
-}
 .modal__tools {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
@@ -812,9 +845,6 @@ body:has(dialog[open]) {
   transition: transform 0.15s;
   transition: transform 0.15s, -webkit-transform 0.15s;
 }
-.modal__link svg > * {
-  stroke-width: 20;
-}
 @media (hover: hover) {
   .modal .modal__link.btn:hover svg {
     -webkit-transform: translate(0.1rem, -0.1rem);
@@ -870,6 +900,7 @@ body:has(dialog[open]) {
 .hero {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -916,6 +947,32 @@ body:has(dialog[open]) {
   display: block;
   margin-left: 0.25em;
   font-size: var(--fs-md);
+}
+.hero__scroll-cue {
+  position: absolute;
+  bottom: var(--sp-2xl);
+  left: 50%;
+  translate: -50% 0;
+  color: var(--c-accent);
+  -webkit-animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+          animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+}
+.hero__scroll-cue svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 16;
+}
+.hero__scroll-cue::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero__scroll-cue {
+    -webkit-animation: none;
+            animation: none;
+  }
 }
 
 .about__content {
@@ -1256,8 +1313,6 @@ body.p-thanks main {
           justify-content: center;
   margin-top: var(--sp-xl);
   padding-inline: var(--sp-sm);
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
 }
 .thanks__body {
   font-size: var(--fs-base);
@@ -1326,4 +1381,6 @@ body.p-thanks main {
           animation-timing-function: ease;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
 }/*# sourceMappingURL=style.css.map */

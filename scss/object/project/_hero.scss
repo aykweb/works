@@ -3,12 +3,15 @@
 .hero {
   @include m.brand-font;
 
+  position: relative; // scroll-cue用
   display: flex;
   align-items: center;
   height: 94vh;
   background-image: var(--grid-line);
   background-size: var(--grid-size);
 
+
+  // キャッチフレーズ
   &__content {
     flex: 0 1 auto;
     align-items: center;
@@ -42,5 +45,34 @@
     display: block;
     margin-left: 0.25em;
     font-size: var(--fs-md);
+  }
+
+  // スクロール誘導表示
+  &__scroll-cue {
+    position: absolute;
+    bottom: var(--sp-2xl);
+    left: 50%;
+    translate: -50% 0;
+    color: var(--c-accent);
+    animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+
+    svg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke-width: 16;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__scroll-cue {
+      animation: none;
+    }
   }
 }
