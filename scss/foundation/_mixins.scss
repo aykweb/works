@@ -13,3 +13,20 @@
   color: var(--c-text-sub);
 }
 
+@mixin mq($max-width: 768px) {
+  @media (max-width: $max-width) {
+    @content
+  }
+}
+
+@mixin hover-focus {
+  @media (hover: hover) {
+    &:hover {
+      @content
+    }
+  }
+
+  &:focus-visible {
+    @content
+  }
+}

@@ -1,4 +1,4 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .contact {
   min-height: 70vh;
@@ -28,7 +28,7 @@
     color: var(--c-text-sub);
 
     label {
-      @include foundation.label-text;
+      @include m.label-text;
 
       font-size: var(--fs-sm);
     }

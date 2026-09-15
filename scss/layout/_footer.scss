@@ -1,4 +1,4 @@
-@use "../foundation";
+@use "../foundation/mixins" as m;
 
 .footer {
   scroll-snap-align: end;
@@ -15,8 +15,8 @@
   }
 
   &__logo {
-    @include foundation.brand-font;
-    @include foundation.brand-font-weight(2.3px);
+    @include m.brand-font;
+    @include m.brand-font-weight(2.3px);
 
     display: block;
     font-size: var(--fs-lg);
@@ -25,15 +25,15 @@
   }
 
   &__nav {
-    @include foundation.brand-font;
-    @include foundation.brand-font-weight(1.2px);
+    @include m.brand-font;
+    @include m.brand-font-weight(1.2px);
   }
 
   &__nav-list {
     display: flex;
     gap: 0 1.5em;
 
-    @media (max-width: 540px) {
+    @include m.mq(540px) {
       display: none;
     }
   }

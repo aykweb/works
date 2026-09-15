@@ -1,7 +1,7 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .hero {
-  @include foundation.brand-font;
+  @include m.brand-font;
 
   display: flex;
   align-items: center;
@@ -17,27 +17,27 @@
     padding-inline: var(--sp-md);
     color: var(--c-accent);
 
-    @media (max-width: 768px) {
+    @include m.mq {
       width: max-content;
     }
   }
 
   &__greeting {
-    @include foundation.brand-font-weight(2.1px);
+    @include m.brand-font-weight(2.1px);
 
     display: block;
     font-size: clamp(1rem, 8.5vw, 2rem);
   }
 
   &__name {
-    @include foundation.brand-font-weight(3.6px);
+    @include m.brand-font-weight(3.6px);
 
     font-size: clamp(2rem, 9.5vw, 3rem);
     text-shadow: var(--txt-shadow);
   }
 
   &__text {
-    @include foundation.brand-font-weight(1.2px);
+    @include m.brand-font-weight(1.2px);
 
     display: block;
     margin-top: 0.25em;

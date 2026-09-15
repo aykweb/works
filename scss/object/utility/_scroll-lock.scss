@@ -1,7 +1,9 @@
+@use "../../foundation/mixins" as m;
+
 .u-scroll-lock {
   overflow: hidden;
 
-  @media (max-width: 768px) {
+  @include m.mq {
     position: fixed;
     width: 100%;
   }

@@ -1,3 +1,5 @@
+@use "../../foundation/mixins" as m;
+
 body.p-thanks {
   display: flex;
   flex-direction: column;

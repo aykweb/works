@@ -1,8 +1,8 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .sec-title {
-  @include foundation.brand-font;
-  @include foundation.brand-font-weight(2.1px);
+  @include m.brand-font;
+  @include m.brand-font-weight(2.1px);
 
   position: relative;
   translate: 0 0.4rem;
@@ -14,7 +14,7 @@
   opacity: 0;
   transition: opacity 0.5s, translate 0.5s;
 
-  @media (max-width: 768px) {
+  @include m.mq {
     font-size: var(--fs-lg);
   }
 

@@ -1,59 +1,59 @@
-html {
-  font-size: 100%;
-  scrollbar-gutter: stable;
-  scroll-padding-top: 3rem;
-  scroll-snap-type: y proximity;
+ @use "./mixins" as m;
 
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
+ html {
+   font-size: 100%;
+   scrollbar-gutter: stable;
+   scroll-padding-top: 3rem;
+   scroll-snap-type: y proximity;
 
-  @media (max-width: 768px) {
-    scroll-snap-type: none;
-  }
-}
+   @media (prefers-reduced-motion: no-preference) {
+     scroll-behavior: smooth;
+   }
 
-body {
-  position: relative;
-  font-feature-settings: "palt";
-  font-optical-sizing: auto;
-  text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Zen Kaku Gothic New', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: var(--ls-base);
+   @include m.mq {
+     scroll-snap-type: none;
+   }
+ }
 
-  color: var(--c-text);
-  background: var(--c-bg);
-}
+ body {
+   position: relative;
+   font-feature-settings: "palt";
+   font-optical-sizing: auto;
+   text-size-adjust: 100%;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   font-family: 'Zen Kaku Gothic New', sans-serif;
+   font-size: 0.875rem;
+   font-weight: 400;
+   line-height: 1.6;
+   letter-spacing: var(--ls-base);
 
-main>section {
-  scroll-snap-align: end;
-  padding-block: var(--sp-md) 4rem;
-  padding-inline: clamp(1rem, 5vw, 3rem);
+   color: var(--c-text);
+   background: var(--c-bg);
+ }
 
-  @media (max-width: 768px) {
-    padding-inline: 0;
-  }
-}
+ main>section {
+   scroll-snap-align: end;
+   padding-block: var(--sp-md) 4rem;
+   padding-inline: clamp(1rem, 5vw, 3rem);
 
-p,
-dd,
-.contact__field {
-  max-inline-size: 40em;
-}
+   @include m.mq {
+     padding-inline: 0;
+   }
+ }
 
-a {
-  white-space: nowrap;
-  transition: opacity var(--t);
-}
+ p,
+ dd,
+ .contact__field {
+   max-inline-size: 40em;
+ }
 
-@media (hover: hover) {
-  a:hover {
-    opacity: 0.65;
-  }
-}
+ a {
+   white-space: nowrap;
+   transition: opacity var(--t);
+
+   @include m.hover-focus {
+     opacity: 0.7;
+   }
+ }

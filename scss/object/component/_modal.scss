@@ -1,4 +1,4 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .modal {
   display: none;
@@ -101,15 +101,15 @@
     display: inline-flex;
     gap: var(--sp-sm);
 
-    @media (max-width: 768px) {
+    @include m.mq {
       flex-wrap: wrap;
     }
   }
 
 
   &__tag {
-    @include foundation.brand-font;
-    @include foundation.brand-font-weight(1.2px);
+    @include m.brand-font;
+    @include m.brand-font-weight(1.2px);
 
     padding: 0.25em 0.375em;
     font-size: 0.75rem;
@@ -119,7 +119,7 @@
     border-radius: 1px;
     cursor: default;
 
-    @media (max-width: 768px) {
+    @include m.mq {
       font-size: 0.675rem;
     }
   }
@@ -134,7 +134,7 @@
   }
 
   &__details h4 {
-    @include foundation.label-text;
+    @include m.label-text;
 
     font-size: 0.75rem;
   }
@@ -172,8 +172,10 @@
     stroke-width: 20;
   }
 
-  &__link.btn:hover svg {
-    transform: translate(0.1rem, -0.1rem);
+  @include m.mq {
+    svg {
+      transform: translate(0.1rem, -0.1rem);
+    }
   }
 }
 

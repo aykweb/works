@@ -1,4 +1,4 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .about {
   min-height: 70vh;
@@ -8,8 +8,8 @@
   }
 
   &__list dt {
-    @include foundation.brand-font;
-    @include foundation.brand-font-weight(1.6px);
+    @include m.brand-font;
+    @include m.brand-font-weight(1.6px);
 
     font-size: var(--fs-sm);
     letter-spacing: var(--ls-wider);
@@ -46,7 +46,7 @@
     opacity: 0;
     transition: opacity 0.5s, transform 0.5s;
 
-    @media (max-width: 768px) {
+    @include m.mq {
       margin-inline: auto;
     }
   }

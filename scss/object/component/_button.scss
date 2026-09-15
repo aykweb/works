@@ -1,3 +1,5 @@
+@use "../../foundation/mixins" as m;
+
 .btn {
   display: flex;
   align-items: center;
@@ -14,8 +16,7 @@
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 
-  &:hover,
-  &:focus-visible {
+  @include m.hover-focus {
     border-color: rgb(var(--c-accent-rgb) / 0.75);
     background: rgb(var(--c-bg-rgb) / 0.5);
     opacity: 1;

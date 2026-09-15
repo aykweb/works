@@ -1,4 +1,4 @@
-@use "../../foundation";
+@use "../../foundation/mixins" as m;
 
 .works {
   min-height: 90vh;
@@ -19,7 +19,7 @@
     grid-template-columns: 1fr 1fr;
     padding-inline: var(--sp-sm);
 
-    @media (max-width: 768px) {
+    @include m.mq {
       row-gap: var(--sp-lg);
       grid-template-columns: 1fr;
       justify-content: center;
@@ -97,8 +97,8 @@
     }
 
     &>span {
-      @include foundation.brand-font;
-      @include foundation.brand-font-weight(1.6px);
+      @include m.brand-font;
+      @include m.brand-font-weight(1.6px);
 
       color: var(--c-text-sub);
       font-size: var(--fs-sm);
@@ -114,7 +114,7 @@
       // buttonの既定色がUA側で上書きされて継承されることがあるため 
       color: var(--c-text);
 
-      @media (max-width: 540px) {
+      @include m.mq(540px) {
         margin-top: var(--sp-xs);
       }
     }
