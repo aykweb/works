@@ -10,19 +10,6 @@ body.p-thanks {
     display: flex;
     flex-direction: column;
   }
-
-  .sec-title {
-    width: 100%;
-    text-align: center;
-    margin-bottom: var(--sp-sm);
-    color: var(--c-accent);
-    font-size: clamp(1.75rem, 5vw, 2.25rem);
-  }
-
-  .sec-title::after {
-    display: none;
-  }
-
 }
 
 .thanks {
@@ -32,15 +19,27 @@ body.p-thanks {
   justify-content: center;
   padding-top: var(--h-header);
 
+ &__title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--sp-sm);
+    color: var(--c-accent);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+  .sec-title::after {
+    display: none;
+  }
+  
   &__inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: var(--sp-xl);
     padding-inline: var(--sp-sm);
+    animation-delay: 0.3s;
   }
 
-  &__inner p {
+  &__body {
     font-size: var(--fs-base);
     line-height: 1.75;
   }

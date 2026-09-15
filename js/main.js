@@ -70,7 +70,7 @@
 
     openBtn.addEventListener('click', () => {
       menu.showModal();
-      requestAnimationFrame(()=>{
+      requestAnimationFrame(() => {
         menu.classList.add('is-open');
       });
     });
@@ -97,17 +97,20 @@
    フェード表示
    ===================== */
   function initScrollAnime() {
-    const h2s = document.querySelectorAll('h2, .about__photo');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    const targets = document.querySelectorAll('.js-fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
+    }, {
+      threshold: 0.5,
     });
 
-    h2s.forEach(h2 => obs.observe(h2));
+    targets.forEach((target) => observer.observe(target));
   }
 
   /* =====================

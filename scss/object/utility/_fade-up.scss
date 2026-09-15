@@ -1,0 +1,7 @@
+.u-fade-up {
+  opacity: 0;
+  animation-name: fade-up;
+  animation-duration: var(--t-fade);
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}

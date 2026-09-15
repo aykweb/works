@@ -1,0 +1,46 @@
+// タイトル末尾のアニメ
+@keyframes blink-anime {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// フェードアップ
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--y-fade));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// モーダルカードの表示
+@keyframes modal-in {
+  0% {
+    translate: 0 20px;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
