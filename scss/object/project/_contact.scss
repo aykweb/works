@@ -29,7 +29,6 @@
 
     label {
       @include m.label-text;
-
       font-size: var(--fs-sm);
     }
 
@@ -45,7 +44,7 @@
       background: transparent;
 
       width: 100%;
-      padding: var(--sp-xs);
+      padding-block: var(--sp-xs);
       color: var(--c-text);
       font-size: var(--fs-base);
       letter-spacing: var(--ls-base);
@@ -70,4 +69,8 @@
     }
   }
 
+  &__required-mark {
+    color: var(--c-required);
+    margin-left: 0.25rem;
+  }
 }

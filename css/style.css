@@ -134,6 +134,7 @@ a:focus-visible {
   --c-footer-text: #5B6360;
   --c-accent: #356A41;
   --c-accent-rgb: 53 106 65;
+  --c-required: #B54708;
   --grid-line:
     linear-gradient(to right, var(--c-bg-sub) 1px, transparent 1px),
     linear-gradient(to bottom, var(--c-bg-sub) 1px, transparent 1px);
@@ -1151,7 +1152,7 @@ body:has(dialog[open]) {
        appearance: none;
   background: transparent;
   width: 100%;
-  padding: var(--sp-xs);
+  padding-block: var(--sp-xs);
   color: var(--c-text);
   font-size: var(--fs-base);
   letter-spacing: var(--ls-base);
@@ -1169,6 +1170,10 @@ body:has(dialog[open]) {
 }
 .contact__field textarea {
   line-height: 1.6;
+}
+.contact__required-mark {
+  color: var(--c-required);
+  margin-left: 0.25rem;
 }
 
 body.p-thanks {
@@ -1262,4 +1267,16 @@ body.p-thanks .sec-title::after {
     position: fixed;
     width: 100%;
   }
+}
+
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }/*# sourceMappingURL=style.css.map */
