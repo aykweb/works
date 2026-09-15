@@ -93,10 +93,6 @@
     flex-shrink: 0;
   }
 
-  &__header .btn svg>* {
-    stroke-width: 18;
-  }
-
   &__tools {
     order: 3;
     width: 100%;
@@ -170,9 +166,7 @@
     transition: transform 0.15s;
   }
 
-  &__link svg>* {
-    stroke-width: 20;
-  }
+
 
   .modal__link.btn {
     @include m.hover-focus {
