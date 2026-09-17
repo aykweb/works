@@ -31,8 +31,9 @@
   ]).then(init).catch((err) => {
     console.error(err);
   });
-  /* ========================================== */
-
+  /* =====================
+ロケーション設定
+===================== */
   function initActiveNav() {
     const sections = document.querySelectorAll('main section[id], .hero');
     const navLinks = document.querySelectorAll('.header__nav-link');
@@ -94,7 +95,7 @@
   }
 
   /* =====================
-   フェード表示
+   スクロール判定フェード表示
    ===================== */
   function initScrollAnime() {
     const targets = document.querySelectorAll('.js-fade-in');
