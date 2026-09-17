@@ -37,18 +37,10 @@ html {
   font-size: 100%;
   scrollbar-gutter: stable;
   scroll-padding-top: 3rem;
-  -ms-scroll-snap-type: y proximity;
-      scroll-snap-type: y proximity;
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-  }
-}
-@media (max-width: 768px) {
-  html {
-    -ms-scroll-snap-type: none;
-        scroll-snap-type: none;
   }
 }
 
@@ -75,7 +67,6 @@ body {
 
 main > section {
   min-height: 80vh;
-  scroll-snap-align: end;
   padding-block: var(--sp-md) 3.5rem;
   padding-inline: clamp(1rem, 5vw, 3rem);
 }

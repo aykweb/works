@@ -4,14 +4,9 @@
    font-size: 100%;
    scrollbar-gutter: stable;
    scroll-padding-top: 3rem;
-   scroll-snap-type: y proximity;
 
    @media (prefers-reduced-motion: no-preference) {
      scroll-behavior: smooth;
-   }
-
-   @include m.mq {
-     scroll-snap-type: none;
    }
  }
 
@@ -35,7 +30,6 @@
 
  main>section {
   min-height: 80vh;
-   scroll-snap-align: end;
    padding-block: var(--sp-md) 3.5rem;
    padding-inline: clamp(1rem, 5vw, 3rem);
 
