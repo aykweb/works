@@ -3,7 +3,7 @@
 .works {
   display: flex;
   flex-direction: column;
-  height: max-content;
+  height: fit-content;
 
   .u-container-md {
     flex: 1;
@@ -33,6 +33,7 @@
     border-radius: 1px;
     overflow: hidden;
     cursor: pointer;
+    transition: border-color var(--t);
 
     @include m.hover-focus {
       border-color: var(--c-accent);

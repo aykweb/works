@@ -266,8 +266,8 @@ a:focus-visible {
   z-index: 80;
   height: var(--h-header);
   border-bottom: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(var(--c-bg-rgb)/0.9)), color-stop(20%, rgb(var(--c-bg-rgb)/0.75)), color-stop(38%, rgb(var(--c-bg-rgb)/0.5)), color-stop(52%, rgb(var(--c-bg-rgb)/0.25)), color-stop(65%, rgb(var(--c-bg-rgb)/0.08)), color-stop(75%, rgb(var(--c-bg-rgb)/0)));
-  background: linear-gradient(to bottom, rgb(var(--c-bg-rgb)/0.9) 0%, rgb(var(--c-bg-rgb)/0.75) 20%, rgb(var(--c-bg-rgb)/0.5) 38%, rgb(var(--c-bg-rgb)/0.25) 52%, rgb(var(--c-bg-rgb)/0.08) 65%, rgb(var(--c-bg-rgb)/0) 75%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(var(--c-bg-rgb)/0.9)), color-stop(20%, rgb(var(--c-bg-rgb)/0.75)), color-stop(38%, rgb(var(--c-bg-rgb)/0.3)), color-stop(52%, rgb(var(--c-bg-rgb)/0.25)), color-stop(65%, rgb(var(--c-bg-rgb)/0.08)), color-stop(75%, rgb(var(--c-bg-rgb)/0)));
+  background: linear-gradient(to bottom, rgb(var(--c-bg-rgb)/0.9) 0%, rgb(var(--c-bg-rgb)/0.75) 20%, rgb(var(--c-bg-rgb)/0.3) 38%, rgb(var(--c-bg-rgb)/0.25) 52%, rgb(var(--c-bg-rgb)/0.08) 65%, rgb(var(--c-bg-rgb)/0) 75%);
 }
 .header__content {
   display: -webkit-box;
@@ -920,7 +920,7 @@ body:has(dialog[open]) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 94vh;
+  height: 96vh;
   background-image: var(--grid-line);
   background-size: var(--grid-size);
 }
@@ -1036,9 +1036,9 @@ body:has(dialog[open]) {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .works .u-container-md {
   -webkit-box-flex: 1;
@@ -1078,6 +1078,8 @@ body:has(dialog[open]) {
   border-radius: 1px;
   overflow: hidden;
   cursor: pointer;
+  -webkit-transition: border-color var(--t);
+  transition: border-color var(--t);
 }
 @media (hover: hover) {
   .works__card--trigger.works__card:hover {
