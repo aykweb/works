@@ -901,6 +901,16 @@ body:has(dialog[open]) {
   background-position: 0 100%;
 }
 
+.body-text {
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  letter-spacing: var(--ls-base);
+  color: var(--c-text);
+}
+.body-text p + p {
+  margin-top: var(--sp-lg);
+}
+
 .hero {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
@@ -990,18 +1000,11 @@ body:has(dialog[open]) {
   letter-spacing: var(--ls-wider);
   color: var(--c-accent);
 }
-.about__body {
-  margin-top: var(--sp-xs);
-  font-size: var(--fs-base);
-  line-height: 1.7;
-  letter-spacing: var(--ls-base);
-  color: var(--c-text);
-}
-.about__body + .about__body {
-  margin-top: var(--sp-lg);
-}
 .about__body + .about__title {
   margin-top: var(--sp-xl);
+}
+.about__body {
+  margin-top: var(--sp-xs);
 }
 .about__photo {
   display: block;
@@ -1171,10 +1174,6 @@ body:has(dialog[open]) {
 
 .contact__content {
   padding-inline: var(--sp-sm);
-}
-.contact__content > p {
-  font-size: var(--fs-base);
-  line-height: 1.75;
 }
 .contact__form {
   display: -webkit-box;

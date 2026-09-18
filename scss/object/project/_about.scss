@@ -14,21 +14,15 @@
     color: var(--c-accent);
   }
 
-  &__body {
-    margin-top: var(--sp-xs);
-    font-size: var(--fs-base);
-    line-height: 1.7;
-    letter-spacing: var(--ls-base);
-    color: var(--c-text);
-
-    &+& {
-      margin-top: var(--sp-lg);
-    }
-  }
-
   &__body+.about__title {
     margin-top: var(--sp-xl);
   }
+
+  &__body {
+    margin-top: var(--sp-xs);
+  }
+
+
 
   &__photo {
     display: block;

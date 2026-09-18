@@ -103,13 +103,15 @@
         <div class="about__content">
           <div class="about__list js-fade-in">
             <h3 class="about__title">About Me</h3>
-            <p class="about__body">駆け出しのコーダーです。以前はレコードの査定をしたり、広報のお仕事をしていました。その過程で色々重なって転機となり、腰を据えてものづくりの技術を身につけようと決めました。</p>
-            <p class="about__body">HTMLを組み立てる面白さと試行錯誤することがウェブ制作の原動力となりました。主に独学でスキルを習得し、職業訓練を経て、今も学習を継続しています。</p>
-            <p class="about__body">セマンティックなコードと保守しやすい設計、より多くの人に伝わりやすい実装を心がけています。</p>
+            <div class="about__body body-text">
+              <p>駆け出しのコーダーです。以前はレコードの査定をしたり、広報のお仕事をしていました。その過程で色々重なって転機となり、腰を据えてものづくりの技術を身につけようと決めました。</p>
+              <p>HTMLを組み立てる面白さと試行錯誤することがウェブ制作の原動力となりました。主に独学でスキルを習得し、職業訓練を経て、今も学習を継続しています。</p>
+              <p>セマンティックなコードと保守しやすい設計、より多くの人に伝わりやすい実装を心がけています。</p>
+            </div>
             <h3 class="about__title">Skills</h3>
-            <p class="about__body">HTML, CSS(Dart Sass), JavaScript, PHP, WordPress, Figma</p>
+            <p class="about__body body-text">HTML, CSS(Dart Sass), JavaScript, PHP, WordPress, Figma</p>
             <h3 class="about__title">Hobbies</h3>
-            <p class="about__body">コーディング、散歩、読書</p>
+            <p class="about__body body-text">コーディング、散歩、読書</p>
           </div>
           <img class="about__photo js-fade-in" src="./images/about.jpeg" alt="制作者が公園の石畳の上を歩いている後ろ姿">
         </div>
@@ -120,7 +122,7 @@
       <div class="u-container-md">
         <h2 id="contact-title" class="sec-title js-fade-in">Contact</h2>
         <div class="contact__content">
-          <p class="js-fade-in">お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
+          <p class="js-fade-in body-text">お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
           <form class="contact__form js-fade-in" action="https://ssgform.com/s/pCxPPgLff5xU" method="POST">
             <input type="hidden" name="_after" value="https://aykweb.github.io/portfolio/"
               aria-labelledby="contact-title">
@@ -146,7 +148,7 @@
               </label>
               <textarea id="contact-message" name="お問い合わせ内容" rows="5" required></textarea>
             </div>
-            <button class="submit btn" type="submit">送信する</button>
+            <button class="btn" type="submit">送信する</button>
           </form>
         </div>
       </div>
