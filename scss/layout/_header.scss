@@ -1,0 +1,280 @@
+@use "../foundation/mixins" as m;
+
+.header {
+  @include m.brand-font;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: var(--h-header);
+  border-bottom: none;
+  background: linear-gradient(to bottom,
+    rgb(var(--c-bg-rgb) / 0.9) 0%,
+    rgb(var(--c-bg-rgb) / 0.75) 20%,
+    rgb(var(--c-bg-rgb) / 0.6) 38%,
+    rgb(var(--c-bg-rgb) / 0.45) 52%,
+    rgb(var(--c-bg-rgb) / 0.2) 65%,
+    rgb(var(--c-bg-rgb) / 0) 75%);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // h1ロゴ
+  &__logo {
+    @include m.brand-font-weight(2.3px);
+  }
+
+  &__logo-link {
+    display: block;
+    font-size: clamp(2.25rem, 5vw, var(--h-header-content));
+    letter-spacing: var(--ls-wider);
+    color: var(--c-text);
+  }
+
+  // グロナビ
+  &__nav {
+    @include m.brand-font-weight(1.2px);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--h-header);
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 0 var(--sp-xl);
+
+    @include m.mq {
+      display: none;
+    }
+  }
+
+  // ナビリンク
+  &__nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-base);
+
+    @include m.hover-focus {
+      opacity: 1;
+    }
+
+
+    // 現在のロケーション設定
+    &.is-current {
+      @include m.brand-font-weight(1.6px);
+      color: var(--c-accent);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        translate: -50% 50%;
+        background: currentColor;
+      }
+
+      &::before {
+        width: 0.875rem;
+        height: 0.125rem;
+      }
+
+      &::after {
+        width: 0.125rem;
+        height: 0.875rem;
+      }
+    }
+  }
+}
+
+
+// ------------------------------------
+// トグル
+// ------------------------------------
+
+.header__toggle--open {
+  display: none;
+}
+
+// トグル共通設定
+@include m.mq {
+  .header__toggle {
+    display: block;
+    position: absolute;
+    top: calc((var(--h-header) - var(--h-header-content)) / 2);
+    right: 0.5rem;
+    width: var(--h-header-content);
+    height: var(--h-header-content);
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      display: block;
+      width: 60%;
+      height: 0.125rem;
+      border-radius: 4px;
+      background: var(--c-text);
+    }
+
+    &--open {
+      span:nth-child(2) {
+        rotate: 90deg;
+      }
+    }
+
+    &--close {
+      color: var(--c-bg);
+      background: none;
+      border: 2px solid var(--c-bg);
+
+      span:nth-child(1) {
+        rotate: 45deg;
+      }
+
+      span:nth-child(2) {
+        rotate: 135deg;
+      }
+    }
+  }
+}
+
+
+// ------------------------------------
+// パネル（モーダル）
+// ------------------------------------
+
+/*  --------【待機時】-------- */
+@include m.mq {
+  .header__panel {
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+    interactivity: inert;
+    pointer-events: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+    overflow: visible;
+
+    translate: 0 -100%;
+    display: grid;
+    grid-template-rows: var(--h-header) 1fr;
+    background: var(--c-bg-sub);
+
+    --t: 0.6s;
+    transition:
+      translate var(--t),
+      display var(--t) allow-discrete,
+      interactivity 0s allow-discrete,
+      pointer-events 0s allow-discrete;
+    transition-behavior: allow-discrete;
+
+    &::backdrop {
+      background: transparent;
+    }
+
+    &:not([open]) {
+      display: none;
+    }
+  }
+
+
+  /*  --------【展開時】-------- */
+  .header__panel[open] {
+    interactivity: auto;
+    pointer-events: auto;
+    translate: 0 0;
+    opacity: 1;
+
+    // 展開直前
+    @starting-style {
+
+      interactivity: inert;
+      pointer-events: none;
+      translate: 0 -100%;
+
+
+      &::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  // ------------------------------------
+  // パネル（コンテンツ）
+  // ------------------------------------
+  /*  --------【待機時】-------- */
+  .header {
+    &__panel-list {
+      @include m.brand-font-weight(1.6px);
+
+      display: grid;
+      place-content: center;
+  row-gap: clamp(0.5rem, 3dvh, var(--sp-xl));
+  padding-block: clamp(0.5rem, 4dvh, 4rem);
+    }
+
+    &__panel-item {
+      opacity: 0;
+      translate: 0 -3rem;
+      transition:
+        opacity var(--t),
+        translate var(--t);
+    }
+
+    &__panel-link {
+      display: flex;
+      align-items: center;
+      min-height: 1.5rem;
+      font-size: var(--fs-lg);
+      letter-spacing: var(--ls-wide);
+
+      &[href*="contact"] {
+        color: var(--c-accent);
+      }
+    }
+  }
+
+  /*  --------【展開時】-------- */
+  .header__panel[open] {
+    @for $i from 1 through 4 {
+      .header__panel-item:nth-child(#{$i}) {
+        opacity: 1;
+        translate: 0 0;
+        transition-delay: 0.2s + ($i * 0.05s);
+
+        // 展開直前
+        @starting-style {
+          opacity: 0;
+          translate: 0 -3rem;
+          transition-delay: 0s;
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__panel,
+  .header__panel-item {
+    transition: none !important;
+  }
+}

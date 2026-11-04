@@ -1,0 +1,39 @@
+@use "../../foundation/mixins" as m;
+
+.sec-title {
+  @include m.brand-font;
+  @include m.brand-font-weight(2.1px);
+
+  position: relative;
+  display: inline-block;
+  margin-block: 1rem 2.5rem;
+  font-size: var(--fs-xl);
+  letter-spacing: var(--ls-base);
+  color: var(--c-text);
+  user-select: none;
+
+  @include m.mq {
+    font-size: var(--fs-lg);
+  }
+
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0.55em;
+    height: 0.1rem;
+    margin-left: 0.15em;
+    vertical-align: baseline;
+    background: currentColor;
+  }
+
+  &.is-visible::after {
+    animation: blink-anime 1.4s 0.5s step-end forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sec-title.is-visible::after {
+    animation: none;
+  }
+}

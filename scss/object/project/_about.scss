@@ -1,0 +1,38 @@
+@use "../../foundation/mixins" as m;
+
+.about {
+  &__content {
+    padding-inline: var(--sp-sm);
+  }
+
+  &__title {
+    @include m.brand-font;
+    @include m.brand-font-weight(1.6px);
+
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-wider);
+    color: var(--c-accent);
+  }
+
+  &__body {
+    margin-top: var(--sp-xs);
+
+    &+.about__title {
+      margin-top: var(--sp-xl);
+    }
+  }
+
+
+  &__photo {
+    display: block;
+    width: 140px;
+    height: 200px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: 20% 36%;
+    margin-left: 1rem;
+    margin-top: 3rem;
+    border-radius: 0.25rem;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 0.12);
+  }
+}

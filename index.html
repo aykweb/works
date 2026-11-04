@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ayumi Kubo</title>
+  <meta name="description"
+    content="クボアユミのポートフォリオサイト。制作したWebサイトや経歴、対応可能なスキルについてまとめています。お仕事のご相談は、お問い合わせフォームよりお気軽にご連絡ください。">
+  <meta property="og:title" content="Ayumi Kubo">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aykweb.github.io/works/">
+  <meta property="og:description"
+    content="クボアユミのポートフォリオサイト。制作したWebサイトや経歴、対応可能なスキルについてまとめています。お仕事のご相談は、お問い合わせフォームよりお気軽にご連絡ください。">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ayumi Kubo">
+  <meta name="twitter:description"
+    content="クボアユミのポートフォリオサイト。制作したWebサイトや経歴、対応可能なスキルについてまとめています。お仕事のご相談は、お問い合わせフォームよりお気軽にご連絡ください。">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="./images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <header id="js-header" class="header">
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero__content u-container-md u-fade-up">
+        <h1>
+          <span class="hero__greeting">Hi, I'm</span>
+          <span class="hero__name">Ayumi Kubo.</span>
+        </h1>
+        <p class="hero__text">Frontend Developer</p>
+      </div>
+      <a href="#works" class="hero__scroll-cue" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"
+          aria-hidden="true">
+          <path
+            d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z">
+          </path>
+        </svg>
+      </a>
+    </section>
+
+    <section id="works" class="works">
+      <div class="u-container-md">
+        <h2 class="sec-title js-fade-in">Works</h2>
+        <ul class="works__list">
+          <li class="js-fade-in">
+            <button class="js-modal-open  works__card--trigger works__card" data-title="千葉かくう美術館（MOIC）"
+              data-tools="HTML/CSS,JavaScript,Figma" data-img="images/thumb-moic.webp"
+              data-overview="架空の文化施設を想定したウェブサイト。" data-structure="WordPress.comで作成したデモページを基にVS Codeで制作。"
+              data-design="公共施設という性質に合わせて文字の読みやすさを重視しました。展覧会のビジュアルが全面に展開するのを想定しシンプルな構成になっています。"
+              data-development="パーツはJavaScriptで共通化して保守性を高めています。支援技術によるアクセシビリティを考慮しています。"
+              data-link="https://aykweb.github.io/moic/" type="button" aria-labelledby="title-moic">
+
+              <img class="works__thumb" src="images/thumb-moic.webp" alt="千葉かくう美術館のウェブサイトのスクリーンショット" width="720"
+                height="540" loading="lazy" decoding="async">
+              <span class="works__info">
+                <span class="works__category">Website</span>
+                <span class="works__title" id="title-moic">千葉かくう美術館</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="js-fade-in">
+            <button class="js-modal-open works__card--trigger works__card" data-title="にゅうめんや　象牙"
+              data-tools="HTML/CSS,JavaScript,PHP,Figma" data-img="images/thumb-zouge.webp"
+              data-overview="架空の飲食店を想定したウェブサイト。" data-structure="Figmaで作成したデザインカンプを基にVS Codeで制作。"
+              data-design="料理の素材の色合いと特徴的なブランドフォントを採用することで、お店のアイデンティティを表現しました。"
+              data-development="PHPとMySQLを連携して予約システムを実装しました。パーツはPHPで共通化して保守性を高めています。"
+              data-link="https://ss323733.stars.ne.jp/index.php" type="button" aria-labelledby="title-zouge">
+
+              <img class="works__thumb" src="images/thumb-zouge.webp" alt="にゅうめんや　象牙のウェブサイトのスクリーンショット" width="720"
+                height="540" loading="lazy" decoding="async">
+              <span class="works__info">
+                <span class="works__category">Website</span>
+                <span class="works__title" id="title-zouge">にゅうめんや　象牙</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="js-fade-in">
+            <button class="js-modal-open works__card--trigger works__card" data-title="ポートフォリオ"
+              data-tools="HTML/CSS(Sass), JavaScript, Figma" data-img="images/thumb-portfolio.webp"
+              data-overview="自身の技術や制作物を紹介するためのポートフォリオサイト。"
+              data-structure="Figmaで作成したデザインカンプを基にVS Codeで制作。CSSはBEMとFLOCSSの手法でSass(Dart Sass)ファイルを分割して管理しています。"
+              data-design="制作物を掲載することを考慮してシンプルな表現にしています。"
+              data-development="PC・スマートフォンに対応したレスポンシブ実装です。メニューや作品詳細にはdialog要素を使い、キーボードでも開閉できるようにしています。ヘッダーとフッターはJavaScriptで共通化し、問い合わせ機能にはSSGformを導入しています。"
+              data-link="https://aykweb.github.io/works/" type="button" aria-labelledby="title-portfolio">
+              <img class="works__thumb" src="images/thumb-portfolio.webp" alt="Worksのスクリーンショット" width="720" height="540"
+                loading="lazy" decoding="async">
+              <span class="works__info">
+                <span class="works__category">Website</span>
+                <span class="works__title" id="title-portfolio">ポートフォリオ</span>
+              </span>
+            </button>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="u-container-md">
+        <h2 class="sec-title js-fade-in">About</h2>
+        <div class="about__content">
+          <div class="about__list js-fade-in">
+            <h3 class="about__title">About Me</h3>
+            <div class="about__body body-text">
+              <p>駆け出しのコーダーです。HTMLを組み立てる面白さと試行錯誤することがウェブ制作の原動力となりました。主に独学でスキルを習得し、職業訓練を経て、今も学習を継続しています。</p>
+              <p>セマンティックなコードと保守しやすい設計、より多くの人に伝わりやすい実装を心がけています。</p>
+              <p>校正の業務で身につけた細部まで確認する習慣を、コーディングに活かしています。</p>
+            </div>
+            <h3 class="about__title">Skills</h3>
+            <p class="about__body body-text">HTML, CSS(Dart Sass), JavaScript, PHP, WordPress, Figma</p>
+            <h3 class="about__title">Hobbies</h3>
+            <p class="about__body body-text">コーディング、散歩、読書</p>
+          </div>
+          <img class="about__photo js-fade-in" src="./images/about.webp" alt="制作者が公園の石畳の上を歩いている後ろ姿" width="900"
+            height="675" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="u-container-md">
+        <h2 id="contact-title" class="sec-title js-fade-in">Contact</h2>
+        <div class="contact__content">
+          <p class="js-fade-in body-text">お仕事のご依頼・ご相談はこちらから。<br>お気軽にお問合せください。</p>
+          <form class="contact__form js-fade-in" action="https://ssgform.com/s/pCxPPgLff5xU" method="POST">
+            <div class="contact__field">
+              <label for="contact-name">お名前<i class="contact__required-mark" aria-hidden="true">*</i>
+                <span class="u-visually-hidden">(必須)</span>
+              </label>
+              <input type="text" id="contact-name" name="お名前" required autocomplete="name">
+            </div>
+            <div class="contact__field">
+              <label for="contact-email">メールアドレス<i class="contact__required-mark" aria-hidden="true">*</i>
+                <span class="u-visually-hidden">(必須)</span>
+              </label>
+              <input type="email" id="contact-email" name="メールアドレス" required autocomplete="email">
+            </div>
+            <div class="contact__field">
+              <label for="contact-subject">件名</label>
+              <input type="text" id="contact-subject" name="件名">
+            </div>
+            <div class="contact__field">
+              <label for="contact-message">お問い合わせ内容<i class="contact__required-mark" aria-hidden="true">*</i>
+                <span class="u-visually-hidden">(必須)</span>
+              </label>
+              <textarea id="contact-message" name="お問い合わせ内容" rows="5" required></textarea>
+            </div>
+            <button class="btn" type="submit">送信する</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="js-modal-window" class="modal">
+
+    <img class="modal__img">
+    <div class="modal__inner">
+      <div class="modal__header">
+
+        <button id="js-modal-close" class="btn" type="button" aria-label="詳細を閉じる">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"
+            aria-hidden="true">
+            <path
+              d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z">
+            </path>
+          </svg>
+        </button>
+
+        <h3 id="js-modal-title" class="modal__title"></h3>
+        <ul class="modal__tools"></ul>
+      </div>
+      <div class="modal__body">
+        <div class="modal__details">
+        </div>
+
+        <a href="" class="modal__link btn" target="_blank" rel="noopener noreferrer">
+          <span>サイトを見る<span class="u-visually-hidden">(新しいタブが開きます)</span></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"
+            aria-hidden="true">
+            <path
+              d="M228,104a12,12,0,0,1-24,0V69l-59.51,59.51a12,12,0,0,1-17-17L187,52H152a12,12,0,0,1,0-24h64a12,12,0,0,1,12,12Zm-44,24a12,12,0,0,0-12,12v64H52V84h64a12,12,0,0,0,0-24H48A20,20,0,0,0,28,80V208a20,20,0,0,0,20,20H176a20,20,0,0,0,20-20V140A12,12,0,0,0,184,128Z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="grid-band"></div>
+  <footer id="js-footer" class="footer">
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+@use "../../foundation/mixins" as m;
+
+.hero {
+  @include m.brand-font;
+
+  position: relative; // scroll-cue用
+  display: flex;
+  align-items: center;
+  height: 96vh;
+  background-image: var(--grid-line);
+  background-size: var(--grid-size);
+
+
+  // キャッチフレーズ
+  &__content {
+    flex: 0 1 auto;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+    padding-inline: var(--sp-md);
+    color: var(--c-accent);
+
+    @include m.mq {
+      width: max-content;
+    }
+  }
+
+  &__greeting {
+    @include m.brand-font-weight(2.1px);
+
+    display: block;
+    font-size: clamp(1rem, 8.5vw, 2rem);
+  }
+
+  &__name {
+    @include m.brand-font-weight(3.6px);
+
+    font-size: clamp(2rem, 9.5vw, 3rem);
+    text-shadow: var(--txt-shadow);
+  }
+
+  &__text {
+    @include m.brand-font-weight(1.2px);
+
+    display: block;
+    margin-left: 0.25em;
+    font-size: var(--fs-md);
+  }
+
+  // スクロール誘導表示
+  &__scroll-cue {
+    position: absolute;
+    bottom: var(--sp-2xl);
+    left: 50%;
+    translate: -50% 0;
+    color: var(--c-accent);
+    animation: scroll-cue-bounce 1.4s linear infinite;
+
+    svg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke-width: 16;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.75rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__scroll-cue {
+      animation: none;
+    }
+  }
+}

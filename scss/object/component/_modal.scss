@@ -1,0 +1,228 @@
+@use "../../foundation/mixins" as m;
+
+// ------------------------------------
+// ウインドウ（モーダル）
+// ------------------------------------
+
+/*  --------【待機時】-------- */
+.modal {
+  max-height: none;
+  border: none;
+  interactivity: inert;
+  pointer-events: none;
+  position: fixed;
+
+  max-width: 580px;
+  width: calc(100vw - var(--sp-xl) * 2);
+  margin: auto;
+  height: 94dvh;
+  overflow: visible;
+
+  translate: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 1;
+  background: var(--c-bg);
+  border-radius: 1px;
+
+  &::backdrop {
+    background: transparent;
+  }
+
+  &:not([open]) {
+    display: none;
+  }
+}
+
+
+/*  --------【展開時】-------- */
+.modal[open] {
+  interactivity: auto;
+  pointer-events: auto;
+  translate: 0 0;
+  
+    --t: 0.4s;
+  transition:
+    translate var(--t) cubic-bezier(0.4, 0, 0.2, 1),
+    display var(--t) allow-discrete,
+    overlay var(--t) allow-discrete,
+    interactivity 0s allow-discrete,
+    pointer-events 0s allow-discrete;
+  transition-behavior: allow-discrete;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    transition:
+      background var(--t),
+      overlay var(--t) allow-discrete,
+      display var(--t) allow-discrete;
+  }
+
+  // 展開直前
+  @starting-style {
+
+    interactivity: inert;
+    pointer-events: none;
+    translate: 0 20px;
+    opacity: 0;
+
+    &::backdrop {
+      background: transparent;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal[open],
+  .modal[open]::backdrop {
+    transition: none;
+  }
+}
+
+// ------------------------------------
+// ウインドウ（コンテンツ）
+// ------------------------------------
+
+.modal {
+  &__inner {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  // サムネイル
+  &__img {
+    display: block;
+    max-height: 48dvh;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top center;
+    background: var(--c-bg);
+  }
+
+  // 見出しエリア
+  &__header {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: var(--sp-sm) 0;
+    justify-content: space-between;
+    padding: var(--sp-md) var(--sp-md) var(--sp-sm);
+    background: var(--c-bg);
+    border-bottom: var(--border);
+  }
+
+  &__title {
+    order: 1;
+    flex: 1;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-500);
+    line-height: 1;
+  }
+
+  &__header .btn {
+    position: relative;
+    order: 2;
+    padding: 0;
+    color: var(--c-text-sub);
+    background: none;
+  }
+
+  &__header .btn::before {
+    content: '';
+    position: absolute;
+    inset: -0.5rem;
+  }
+
+  &__header .btn svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  &__tools {
+    order: 3;
+    width: 100%;
+    display: inline-flex;
+    gap: var(--sp-sm);
+
+    @include m.mq {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__tag {
+    @include m.brand-font;
+    @include m.brand-font-weight(1.2px);
+
+    padding: 0.25em 0.375em;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--c-text-sub);
+    border: var(--border);
+    border-radius: 1px;
+    cursor: default;
+
+    @include m.mq {
+      font-size: 0.675rem;
+    }
+  }
+
+  // 本文
+  &__body {
+    padding: var(--sp-sm) 5% var(--sp-xl);
+  }
+
+  &__details {
+    padding-block: var(--sp-sm);
+  }
+
+  &__details h4 {
+    @include m.label-text;
+
+    font-size: 0.75rem;
+  }
+
+  &__details p+h4 {
+    margin-block-start: 2.25em;
+  }
+
+  &__details p {
+    margin-top: var(--sp-xs);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+  }
+
+  // リンクボタン
+  &__link.btn {
+    gap: 0 0.25em;
+    margin-top: var(--sp-xl);
+    padding: 0.875em 0;
+  }
+
+  &__link.btn span {
+    font-size: var(--fs-sm);
+  }
+
+  &__link svg {
+    display: block;
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    transition: transform 0.15s;
+  }
+
+  .modal__link.btn {
+    @include m.hover-focus {
+      svg {
+        transform: translate(0.1rem, -0.1rem);
+      }
+    }
+  }
+}

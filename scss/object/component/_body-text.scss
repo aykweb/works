@@ -1,0 +1,10 @@
+.body-text {
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  letter-spacing: var(--ls-base);
+  color: var(--c-text);
+
+  p+p {
+    margin-top: var(--sp-lg);
+  }
+}
