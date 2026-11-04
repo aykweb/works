@@ -110,7 +110,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: start;
-    gap: var(--sp-sm) 0;
+    gap: var(--sp-xs) 0;
     justify-content: space-between;
     padding: var(--sp-md) var(--sp-md) var(--sp-sm);
     background: var(--c-bg);
@@ -161,7 +161,7 @@
     @include m.brand-font;
     @include m.brand-font-weight(1.2px);
 
-    padding: 0.25em 0.375em;
+    padding: 0.2em 0.375em;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     color: var(--c-text-sub);
