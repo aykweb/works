@@ -35,8 +35,9 @@
   &__name {
     @include m.brand-font-weight(3.6px);
 
+    display: inline-block;
     font-size: clamp(2rem, 9.5vw, 3rem);
-    text-shadow: var(--txt-shadow);
+    filter: drop-shadow(var(--txt-shadow));
   }
 
   &__text {
