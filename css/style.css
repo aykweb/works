@@ -724,7 +724,7 @@ a:focus-visible {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  gap: var(--sp-sm) 0;
+  gap: var(--sp-xs) 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -784,7 +784,7 @@ a:focus-visible {
   font-family: var(--ff-brand);
   -webkit-text-stroke-color: currentColor;
   -webkit-text-stroke-width: 1.2px;
-  padding: 0.25em 0.375em;
+  padding: 0.2em 0.375em;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--c-text-sub);
@@ -948,8 +948,10 @@ a:focus-visible {
 }
 .hero__name {
   -webkit-text-stroke-width: 3.6px;
+  display: inline-block;
   font-size: clamp(2rem, 9.5vw, 3rem);
-  text-shadow: var(--txt-shadow);
+  -webkit-filter: drop-shadow(var(--txt-shadow));
+          filter: drop-shadow(var(--txt-shadow));
 }
 .hero__text {
   -webkit-text-stroke-width: 1.2px;
